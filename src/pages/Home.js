@@ -11,27 +11,27 @@ const Home = () => {
       subtitle: "Game Client Developer",
       description: "C++ and Unreal Engine based game client developer with extensive MMORPG development experience. Specialized in designing and implementing core game systems including inventory management, equipment/gear system, party/community systems, and death/resurrection systems. Applied MVVM architecture to improve code maintainability and provided optimized user experience through real-time network synchronization.",
       projectU: {
-        title: "ProjectU - MMORPG Client Development",
+        title: "ProjectR - MMORPG Client Development",
         date: "Date: 2023 ~ Present",
         desc: "A large-scale MMORPG project built with Unreal Engine 5. Led client-side development implementing comprehensive game systems including inventory management, equipment/gear system, party/community systems, and death/resurrection systems.",
         tags: ["MMORPG", "C++", "UnrealEngine5", "MVVM", "Network Programming"],
-        role: "Client Programmer",
-        teamSize: "50+ Developers",
+        role: "Unreal Client Programmer",
+        teamSize: "100+ Developers",
         platforms: ["PC", "Mobile"]
       },
       technicalHighlights: {
         title: "Technical Highlights",
         architecture: {
           title: "MVVM Architecture",
-          desc: "Implemented MVVM pattern for UI/business logic separation, improving code maintainability by 40%"
+          desc: "Implemented comprehensive MVVM pattern with 770+ ViewModels, Model-View separation, and delegate-based event handling for scalable UI architecture"
         },
         performance: {
           title: "Performance Optimization",
-          desc: "Reduced network traffic by 20% through efficient packet handling and real-time data synchronization"
+          desc: "Optimized network traffic with CMSG/CUP packet system, FieldNotify for efficient UI updates, and real-time data synchronization across 100+ concurrent users"
         },
         systems: {
           title: "Core Systems",
-          desc: "Developed 13+ essential game systems including inventory, equipment/gear, party/community, and death/resurrection systems"
+          desc: "Developed 13+ essential game systems including inventory management, equipment/gear system, party/community systems, and death/resurrection mechanics"
         }
       },
       sections: {
@@ -52,27 +52,27 @@ const Home = () => {
       subtitle: "게임 클라이언트 개발자",
       description: "C++와 Unreal Engine 기반의 게임 클라이언트 개발자로 대규모 MMORPG 개발 경험을 보유하고 있습니다. 인벤토리 시스템, 장비/장착 시스템, 파티/커뮤니티 시스템, 사망/부활 시스템 등 핵심 게임 시스템 설계 및 구현에 전문성을 가지고 있습니다. MVVM 아키텍처를 적용하여 코드 유지보수성을 향상시키고, 실시간 네트워크 동기화를 통한 최적화된 사용자 경험을 제공합니다.",
       projectU: {
-        title: "ProjectU - MMORPG 클라이언트 개발",
+        title: "ProjectR - MMORPG 클라이언트 개발",
         date: "기간: 2023 ~ 현재",
         desc: "Unreal Engine 5로 구축된 대규모 MMORPG 프로젝트입니다. 클라이언트 개발을 주도하여 인벤토리 시스템, 장비/장착 시스템, 파티/커뮤니티 시스템, 사망/부활 시스템을 포함한 포괄적인 게임 시스템을 구현했습니다.",
         tags: ["MMORPG", "C++", "UnrealEngine5", "MVVM", "네트워크 프로그래밍"],
-        role: "클라이언트 프로그래머",
-        teamSize: "50+ 개발자",
+        role: "언리얼 클라이언트 프로그래머",
+        teamSize: "100+ 개발자",
         platforms: ["PC", "모바일"]
       },
       technicalHighlights: {
         title: "기술적 하이라이트",
         architecture: {
           title: "MVVM 아키텍처",
-          desc: "UI/비즈니스 로직 분리를 위한 MVVM 패턴 구현으로 코드 유지보수성 40% 향상"
+          desc: "770개 이상의 ViewModel과 Model-View 분리, 델리게이트 기반 이벤트 핸들링을 통한 확장 가능한 UI 아키텍처 구현"
         },
         performance: {
           title: "성능 최적화",
-          desc: "효율적인 패킷 처리와 실시간 데이터 동기화를 통해 네트워크 트래픽 20% 감소"
+          desc: "CMSG/CUP 패킷 시스템, FieldNotify를 통한 효율적인 UI 업데이트, 100명 이상 동시 접속자 실시간 데이터 동기화"
         },
         systems: {
           title: "핵심 시스템",
-          desc: "인벤토리, 장비/장착, 파티/커뮤니티, 사망/부활 시스템을 포함한 13개 이상의 필수 게임 시스템 개발"
+          desc: "인벤토리 관리, 장비/장착 시스템, 파티/커뮤니티 시스템, 사망/부활 메커니즘을 포함한 13개 이상의 필수 게임 시스템 개발"
         }
       },
       sections: {
@@ -167,6 +167,138 @@ const Home = () => {
             <p style={{ color: '#4a5568', marginBottom: '40px', lineHeight: '1.8', fontSize: '1.3rem' }}>
               {t.projectU.desc}
             </p>
+            
+            {/* 주요 기여 섹션 */}
+            <div style={{ 
+              background: 'linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%)', 
+              padding: '32px', 
+              borderRadius: '16px',
+              marginBottom: '40px',
+              border: '1px solid #e2e8f0'
+            }}>
+              <h4 style={{ 
+                fontSize: '1.6rem', 
+                fontWeight: '700', 
+                color: '#2d3748', 
+                marginBottom: '20px',
+                borderLeft: '4px solid #667eea',
+                paddingLeft: '12px'
+              }}>
+                주요 기여
+              </h4>
+              <div style={{ display: 'grid', gap: '16px' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <span style={{ 
+                    background: '#667eea', 
+                    color: 'white', 
+                    borderRadius: '50%', 
+                    width: '24px', 
+                    height: '24px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    fontSize: '0.8rem',
+                    fontWeight: '600',
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}>1</span>
+                  <p style={{ color: '#4a5568', fontSize: '1.1rem', margin: 0, lineHeight: '1.6' }}>
+                    <strong>인벤토리/아이템/장비/퀵슬롯 등 핵심 게임 시스템 구현</strong><br/>
+                    • 80개 이상의 인벤토리 관련 파일 개발 (InventoryModel, ItemData, StorageModel 등)<br/>
+                    • 아이템 UID 기반 데이터 관리, 쿨타임 시스템, 자동 사용 기능 구현<br/>
+                    • 장비 장착/해제, 강화, 분해, 아이템 박스 시스템 개발
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <span style={{ 
+                    background: '#667eea', 
+                    color: 'white', 
+                    borderRadius: '50%', 
+                    width: '24px', 
+                    height: '24px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    fontSize: '0.8rem',
+                    fontWeight: '600',
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}>2</span>
+                  <p style={{ color: '#4a5568', fontSize: '1.1rem', margin: 0, lineHeight: '1.6' }}>
+                    <strong>MVVM 기반 뷰모델–모델 구조 적용으로 UI·로직 분리</strong><br/>
+                    • 770개 이상의 ViewModel 클래스 설계 및 구현<br/>
+                    • 델리게이트 기반 이벤트 핸들링 시스템 구축<br/>
+                    • FieldNotify를 활용한 효율적인 UI 업데이트 메커니즘 개발
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <span style={{ 
+                    background: '#667eea', 
+                    color: 'white', 
+                    borderRadius: '50%', 
+                    width: '24px', 
+                    height: '24px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    fontSize: '0.8rem',
+                    fontWeight: '600',
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}>3</span>
+                  <p style={{ color: '#4a5568', fontSize: '1.1rem', margin: 0, lineHeight: '1.6' }}>
+                    <strong>파티·커뮤니티 등 유저 관련 데이터 구조 설계</strong><br/>
+                    • 파티 시스템: 파티 생성/해산, 멤버 관리, 타겟 공유, 분배 방식 설정<br/>
+                    • 커뮤니티 시스템: 친구 관리, 길드 정보, 차단 기능, 실시간 상태 동기화<br/>
+                    • 50개 이상의 네트워크 패킷 구조 설계 및 구현
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <span style={{ 
+                    background: '#667eea', 
+                    color: 'white', 
+                    borderRadius: '50%', 
+                    width: '24px', 
+                    height: '24px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    fontSize: '0.8rem',
+                    fontWeight: '600',
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}>4</span>
+                  <p style={{ color: '#4a5568', fontSize: '1.1rem', margin: 0, lineHeight: '1.6' }}>
+                    <strong>서버 기반 쿨타임 UI 구축 및 동기화</strong><br/>
+                    • 개별 아이템 쿨타임과 그룹 쿨타임 시스템 구현<br/>
+                    • 실시간 쿨타임 UI 업데이트 및 서버 동기화<br/>
+                    • CMSG/CUP 패킷 시스템을 통한 효율적인 네트워크 통신
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <span style={{ 
+                    background: '#667eea', 
+                    color: 'white', 
+                    borderRadius: '50%', 
+                    width: '24px', 
+                    height: '24px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    fontSize: '0.8rem',
+                    fontWeight: '600',
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}>5</span>
+                  <p style={{ color: '#4a5568', fontSize: '1.1rem', margin: 0, lineHeight: '1.6' }}>
+                    <strong>100명 이상 협업 환경에서 대규모 UI/네트워크 시스템 안정화</strong><br/>
+                    • 100+ 개발자와 협업하는 대규모 프로젝트 환경에서 안정적인 시스템 구축<br/>
+                    • PC/모바일 멀티플랫폼 대응 및 크로스 플랫폼 호환성 확보<br/>
+                    • 메모리 관리, 성능 최적화, 버그 수정을 통한 시스템 안정성 향상
+                  </p>
+                </div>
+              </div>
+            </div>
 
             {/* Project Details */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px', marginBottom: '40px' }}>
