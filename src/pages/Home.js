@@ -299,7 +299,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Project Video Section */}
+      {/* Project Image Section */}
       <section style={{ marginBottom: '80px' }}>
         <h2 style={{
           fontSize: '3.5rem',
@@ -311,7 +311,7 @@ const Home = () => {
           paddingLeft: '20px',
           display: 'inline-block'
         }}>
-          프로젝트 영상
+          프로젝트 이미지
         </h2>
         <div style={{
           maxWidth: '1000px',
@@ -320,17 +320,15 @@ const Home = () => {
           overflow: 'hidden',
           boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
         }}>
-          <video
-            controls
+          <img
+            src="/projectR.jpg"
+            alt="ProjectU Screenshot"
             style={{
               width: '100%',
               height: 'auto',
               display: 'block'
             }}
-          >
-            <source src="/projectR.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          />
         </div>
       </section>
 
