@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { LangProvider } from './LangContext';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contributions from './pages/Contributions';
+import CombatSystem from './pages/CombatSystem';
+import InteractiveUI from './pages/InteractiveUI';
+import Optimization from './pages/Optimization';
+import ProblemSolving from './pages/ProblemSolving';
+import Growth from './pages/Growth';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LangProvider>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contributions" element={<Contributions />} />
+              <Route path="/combat-system" element={<CombatSystem />} />
+              <Route path="/interactive-ui" element={<InteractiveUI />} />
+              <Route path="/optimization" element={<Optimization />} />
+              <Route path="/problem-solving" element={<ProblemSolving />} />
+              <Route path="/growth" element={<Growth />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </LangProvider>
   );
 }
 
