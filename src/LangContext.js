@@ -3,12 +3,10 @@
 const LangContext = createContext();
 
 export const LangProvider = ({ children }) => {
-    // ✅ 초기값을 소문자로 통일
     const [lang, setLang] = useState("en");
 
     const toggleLang = (newLang) => {
-        // ✅ 버튼에서 en/ko 그대로 전달받도록
-        setLang(newLang.toLowerCase());
+        setLang(newLang);
     };
 
     return (

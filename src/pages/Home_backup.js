@@ -25,7 +25,7 @@ const Home = () => {
         title: "Technical Highlights",
         architecture: {
           title: "MVVM Architecture",
-          desc: "Implemented comprehensive MVVM pattern with 13 major game systems, Model-View separation, and delegate-based event handling for scalable UI architecture"
+          desc: "Implemented comprehensive MVVM pattern with 770+ ViewModels, Model-View separation, and delegate-based event handling for scalable UI architecture"
         },
         performance: {
           title: "Performance Optimization",
@@ -46,7 +46,7 @@ const Home = () => {
           },
           {
             title: "UI/UX System (MVVM Architecture)",
-            desc: "13 major game systems MVVM implementation, complete UI/logic separation",
+            desc: "770+ ViewModel design, complete UI/logic separation",
             note: "Improved maintainability and easy new feature expansion"
           },
           {
@@ -61,17 +61,6 @@ const Home = () => {
           }
         ]
       },
-      codeComments: {
-        model: "// Model: Party data and server communication",
-        viewModel: "// ViewModel: UI and Model connection, automatic updates with FieldNotify",
-        private: "// Private:",
-        members: "// Members:",
-        delegate: "// Delegate:",
-        updateMember: "// Called when updating party member info from server",
-        onPartyChanged: "// Called when party member status changes (from global Model)",
-        fieldNotify: "// UI auto-refresh with FieldNotify",
-        etc: "etc..."
-      },
       sections: {
         experience: "Experience",
         projects: "Projects",
@@ -83,9 +72,6 @@ const Home = () => {
         title: "Contact",
         email: "Email",
         github: "GitHub"
-      },
-      vision: {
-        description: "Discover the vision and goals as a game developer"
       }
     },
     ko: {
@@ -126,7 +112,7 @@ const Home = () => {
           },
           {
             title: "UI/UX 시스템 (MVVM 아키텍처)",
-            desc: "13개 주요 게임 시스템 MVVM 구현, UI/로직 완전 분리",
+            desc: "770개+ ViewModel 설계, UI/로직 완전 분리",
             note: "유지보수성 향상 및 신규 기능 확장 용이"
           },
           {
@@ -152,25 +138,13 @@ const Home = () => {
         title: "연락처",
         email: "이메일",
         github: "깃허브"
-      },
-      vision: {
-        description: "게임 개발자로서의 비전과 목표를 알아보세요"
-      },
-      codeComments: {
-        model: "// Model: 파티 데이터와 서버 통신",
-        viewModel: "// ViewModel: UI와 Model 연결, FieldNotify로 자동 업데이트",
-        private: "// Private:",
-        members: "// Members:",
-        delegate: "// Delegate:",
-        updateMember: "// 서버에서 파티원 정보 업데이트 시 호출",
-        onPartyChanged: "// 파티원 상태 변경 시 호출 (글로벌 Model에서)",
-        fieldNotify: "// FieldNotify로 UI 자동 갱신",
-        etc: "etc..."
       }
     }
   };
 
   const t = content[lang];
+
+
 
   return (
     <div style={{
@@ -297,22 +271,23 @@ const Home = () => {
                 ))}
               </div>
             </div>
-
-            {/* Project Details */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px', marginBottom: '40px' }}>
-              <div style={{ textAlign: 'center', padding: '24px', background: '#f7fafc', borderRadius: '12px' }}>
-                <h4 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#2d3748', marginBottom: '12px' }}>👤 Role</h4>
-                <p style={{ color: '#4a5568', fontSize: '1.2rem' }}>{t.projectU.role}</p>
-              </div>
-              <div style={{ textAlign: 'center', padding: '24px', background: '#f7fafc', borderRadius: '12px' }}>
-                <h4 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#2d3748', marginBottom: '12px' }}>👥 Team Size</h4>
-                <p style={{ color: '#4a5568', fontSize: '1.2rem' }}>{t.projectU.teamSize}</p>
-              </div>
-              <div style={{ textAlign: 'center', padding: '24px', background: '#f7fafc', borderRadius: '12px' }}>
-                <h4 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#2d3748', marginBottom: '12px' }}>💻 Platforms</h4>
-                <p style={{ color: '#4a5568', fontSize: '1.2rem' }}>{t.projectU.platforms.join(', ')}</p>
-              </div>
             </div>
+
+                         {/* Project Details */}
+             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+               <div style={{ textAlign: 'center', padding: '24px', background: '#f7fafc', borderRadius: '12px' }}>
+                 <h4 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#2d3748', marginBottom: '12px' }}>👤 Role</h4>
+                 <p style={{ color: '#4a5568', fontSize: '1.2rem' }}>{t.projectU.role}</p>
+               </div>
+               <div style={{ textAlign: 'center', padding: '24px', background: '#f7fafc', borderRadius: '12px' }}>
+                 <h4 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#2d3748', marginBottom: '12px' }}>👥 Team Size</h4>
+                 <p style={{ color: '#4a5568', fontSize: '1.2rem' }}>{t.projectU.teamSize}</p>
+               </div>
+               <div style={{ textAlign: 'center', padding: '24px', background: '#f7fafc', borderRadius: '12px' }}>
+                 <h4 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#2d3748', marginBottom: '12px' }}>💻 Platforms</h4>
+                 <p style={{ color: '#4a5568', fontSize: '1.2rem' }}>{t.projectU.platforms.join(', ')}</p>
+               </div>
+             </div>
 
             {/* Tags */}
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -372,7 +347,7 @@ const Home = () => {
               
               {/* Actual Implementation Code */}
               <CodeCardCollapsible
-                code={`${t.codeComments.model}
+                code={`// Model: 파티 데이터와 서버 통신
 class UPartyModel : public UObject
 {
 private:
@@ -385,7 +360,7 @@ private:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPartyChanged, uint8, Num);
 
 public:
-    ${t.codeComments.updateMember}
+    // 서버에서 파티원 정보 업데이트 시 호출
     void UpdateMember(const FPartyData& NewData)
     {
         if (Members.Contains(NewData.Num))
@@ -396,7 +371,7 @@ public:
     }
 };
 
-${t.codeComments.viewModel}
+// ViewModel: UI와 Model 연결, FieldNotify로 자동 업데이트
 class UPartyVM : public UMVVMViewModelBase
 {
 private:
@@ -407,15 +382,15 @@ private:
     EPartyState State;
 
 private:
-    ${t.codeComments.onPartyChanged}
+    // 파티원 상태 변경 구독 처리.
     void OnPartyChanged(uint8 Num)
     {
         if (Num == PartyNum)
         {
-            ${t.codeComments.fieldNotify}
+            // FieldNotify로 UI 자동 갱신
             UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetState);
             UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetStateText);
-            ${t.codeComments.etc}
+            etc...
         }
     }
 };`}
@@ -436,11 +411,21 @@ private:
             border: '1px solid #e2e8f0'
           }}>
             <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '24px', color: '#1a202c' }}>
-              🚀 {t.technicalHighlights.performance.title}
+              ⚡ {t.technicalHighlights.performance.title}
             </h3>
             <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.3rem', marginBottom: '24px' }}>
               {t.technicalHighlights.performance.desc}
             </p>
+            <div style={{ 
+              background: '#f7fafc', 
+              padding: '24px', 
+              borderRadius: '12px',
+              border: '2px dashed #cbd5e0'
+            }}>
+              <p style={{ color: '#718096', fontSize: '1.1rem', textAlign: 'center', margin: 0 }}>
+                📈 성능 최적화 플로우차트 및 벤치마크 추가 예정
+              </p>
+            </div>
           </div>
           
           {/* Core Systems */}
@@ -452,11 +437,21 @@ private:
             border: '1px solid #e2e8f0'
           }}>
             <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '24px', color: '#1a202c' }}>
-              ⚙️ {t.technicalHighlights.systems.title}
+              🎮 {t.technicalHighlights.systems.title}
             </h3>
             <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.3rem', marginBottom: '24px' }}>
               {t.technicalHighlights.systems.desc}
             </p>
+            <div style={{ 
+              background: '#f7fafc', 
+              padding: '24px', 
+              borderRadius: '12px',
+              border: '2px dashed #cbd5e0'
+            }}>
+              <p style={{ color: '#718096', fontSize: '1.1rem', textAlign: 'center', margin: 0 }}>
+                🛠️ 시스템 아키텍처 다이어그램 추가 예정
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -473,7 +468,7 @@ private:
           paddingLeft: '20px',
           display: 'inline-block'
         }}>
-          {lang === 'ko' ? '프로젝트 영상' : 'Project Video'}
+          프로젝트 영상
         </h2>
         <div style={{
           maxWidth: '1000px',
@@ -499,124 +494,98 @@ private:
       </section>
 
       {/* Navigation Cards */}
-      <section style={{ marginBottom: '80px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
-          <Link to="/contributions" style={{ textDecoration: 'none' }}>
-            <div style={{
-              background: '#ffffff',
-              borderRadius: '20px',
-              padding: '40px',
-              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-              border: '1px solid #e2e8f0',
-              transition: 'transform 0.2s, box-shadow 0.2s',
-              cursor: 'pointer',
-              height: '100%'
-            }} onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
-            }} onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
-            }}>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
-                💼 {t.sections.experience}
-              </h3>
-              <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
-                {lang === 'ko' ? '프로젝트 경험과 기술적 성과를 자세히 살펴보세요' : 'Explore project experience and technical achievements in detail'}
-              </p>
-              <div style={{ color: '#667eea', fontWeight: '600' }}>
-                {t.sections.viewDetails} →
-              </div>
+      <section style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+        gap: '32px', 
+        marginBottom: '80px' 
+      }}>
+        <Link to="/projects" style={{ textDecoration: 'none' }}>
+          <div style={{
+            background: '#ffffff',
+            borderRadius: '20px',
+            padding: '40px',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+            border: '1px solid #e2e8f0',
+            transition: 'transform 0.2s, box-shadow 0.2s',
+            cursor: 'pointer',
+            height: '100%'
+          }} onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+          }} onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+          }}>
+            <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
+              💼 {t.sections.projects}
+            </h3>
+            <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
+              ProjectU를 비롯한 다양한 게임 개발 프로젝트들과 MMORPG 클라이언트 개발 경험을 확인하세요
+            </p>
+            <div style={{ color: '#667eea', fontWeight: '600' }}>
+              {t.sections.viewDetails} →
             </div>
-          </Link>
-          
-          <Link to="/interactive-ui" style={{ textDecoration: 'none' }}>
-            <div style={{
-              background: '#ffffff',
-              borderRadius: '20px',
-              padding: '40px',
-              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-              border: '1px solid #e2e8f0',
-              transition: 'transform 0.2s, box-shadow 0.2s',
-              cursor: 'pointer',
-              height: '100%'
-            }} onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
-            }} onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
-            }}>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
-                🎮 {t.sections.projects}
-              </h3>
-              <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
-                {lang === 'ko' ? '인터랙티브 UI 시스템과 게임플레이 메커니즘을 확인하세요' : 'Check out interactive UI systems and gameplay mechanisms'}
-              </p>
-              <div style={{ color: '#667eea', fontWeight: '600' }}>
-                {t.sections.viewDetails} →
-              </div>
+          </div>
+        </Link>
+        
+        <Link to="/skills" style={{ textDecoration: 'none' }}>
+          <div style={{
+            background: '#ffffff',
+            borderRadius: '20px',
+            padding: '40px',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+            border: '1px solid #e2e8f0',
+            transition: 'transform 0.2s, box-shadow 0.2s',
+            cursor: 'pointer',
+            height: '100%'
+          }} onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+          }} onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+          }}>
+            <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
+              🛠️ {t.sections.skills}
+            </h3>
+            <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
+              C++, Unreal Engine, MVVM 등 보유 기술 스택을 확인하세요
+            </p>
+            <div style={{ color: '#667eea', fontWeight: '600' }}>
+              {t.sections.viewDetails} →
             </div>
-          </Link>
-          
-          <Link to="/optimization" style={{ textDecoration: 'none' }}>
-            <div style={{
-              background: '#ffffff',
-              borderRadius: '20px',
-              padding: '40px',
-              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-              border: '1px solid #e2e8f0',
-              transition: 'transform 0.2s, box-shadow 0.2s',
-              cursor: 'pointer',
-              height: '100%'
-            }} onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
-            }} onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
-            }}>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
-                🔧 {t.sections.skills}
-              </h3>
-              <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
-                {lang === 'ko' ? 'C++, Unreal Engine, MVVM 등 보유 기술 스택을 확인하세요' : 'Check out technical skills including C++, Unreal Engine, MVVM'}
-              </p>
-              <div style={{ color: '#667eea', fontWeight: '600' }}>
-                {t.sections.viewDetails} →
-              </div>
+          </div>
+        </Link>
+        
+        <Link to="/vision" style={{ textDecoration: 'none' }}>
+          <div style={{
+            background: '#ffffff',
+            borderRadius: '20px',
+            padding: '40px',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+            border: '1px solid #e2e8f0',
+            transition: 'transform 0.2s, box-shadow 0.2s',
+            cursor: 'pointer',
+            height: '100%'
+          }} onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+          }} onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+          }}>
+            <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
+              🚀 {t.sections.vision}
+            </h3>
+            <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
+              {lang === 'ko' ? '게임 개발자로서의 비전과 목표를 알아보세요' : 'Discover the vision and goals as a game developer'}
+            </p>
+            <div style={{ color: '#667eea', fontWeight: '600' }}>
+              {t.sections.viewDetails} →
             </div>
-          </Link>
-          
-          <Link to="/vision" style={{ textDecoration: 'none' }}>
-            <div style={{
-              background: '#ffffff',
-              borderRadius: '20px',
-              padding: '40px',
-              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-              border: '1px solid #e2e8f0',
-              transition: 'transform 0.2s, box-shadow 0.2s',
-              cursor: 'pointer',
-              height: '100%'
-            }} onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
-            }} onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
-            }}>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
-                🚀 {t.sections.vision}
-              </h3>
-              <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
-                {t.vision.description}
-              </p>
-              <div style={{ color: '#667eea', fontWeight: '600' }}>
-                {t.sections.viewDetails} →
-              </div>
-            </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </section>
 
       {/* Contact Section */}
