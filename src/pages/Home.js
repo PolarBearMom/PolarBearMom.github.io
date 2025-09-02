@@ -215,12 +215,12 @@ const Home = () => {
 
       {/* ProjectU Main Card */}
       <section style={{ marginBottom: '80px' }}>
-        <div style={{
+        <div className="w-full min-w-0" style={{
           background: '#ffffff',
           borderRadius: '24px',
           boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
           overflow: 'hidden',
-          maxWidth: '1200px',
+          maxWidth: 'min(100%, 1200px)',
           margin: '0 auto'
         }}>
           <div style={{ overflow: 'hidden' }}>
@@ -338,13 +338,13 @@ const Home = () => {
       </section>
 
       {/* Technical Highlights Section */}
-      <section style={{ marginBottom: '80px' }}>
+      <section aria-label="Technical Highlights" className="px-4 sm:px-6 lg:px-8" style={{ marginBottom: '80px' }}>
         <h2 style={{
           fontSize: '3.5rem',
           fontWeight: '800',
           marginBottom: '40px',
           color: '#1a202c',
-          textAlign: 'center',
+          textAlign: 'left',
           borderLeft: '8px solid #667eea',
           paddingLeft: '20px',
           display: 'inline-block'
@@ -352,24 +352,15 @@ const Home = () => {
           ⚡ {t.technicalHighlights.title}
         </h2>
         
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
-          gap: '32px',
-          width: '100%',
-          maxWidth: '100%',
-          overflow: 'hidden'
-        }}>
+        {/* 1 → 2 → 3 고정 전환 - 왼쪽부터 시작 */}
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-stretch justify-items-start">
           {/* MVVM Architecture */}
-          <div style={{
+          <article className="w-full min-w-0 h-full rounded-2xl border border-zinc-200 bg-white shadow-sm flex flex-col" style={{
             background: '#ffffff',
             borderRadius: '20px',
             padding: '40px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
             border: '1px solid #e2e8f0',
-            width: '100%',
-            minWidth: '0',
-            maxWidth: '100%',
             boxSizing: 'border-box',
             overflow: 'hidden'
           }}>
@@ -379,12 +370,15 @@ const Home = () => {
             <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.3rem', marginBottom: '24px' }}>
               {t.technicalHighlights.architecture.desc}
             </p>
-            <div style={{ display: 'grid', gap: '16px' }}>
-              <MvvmFlowDiagram />
+            <div className="min-w-0" style={{ display: 'grid', gap: '16px' }}>
+              <div className="min-w-0">
+                <MvvmFlowDiagram />
+              </div>
               
               {/* Actual Implementation Code */}
-              <CodeCardCollapsible
-                code={`${t.codeComments.model}
+              <div className="min-w-0">
+                <CodeCardCollapsible
+                  code={`${t.codeComments.model}
 class UPartyModel : public UObject
 {
 private:
@@ -431,24 +425,22 @@ private:
         }
     }
 };`}
-                language="cpp"
-                label="C++"
-                title="Party System MVVM Example"
-                collapsedHeight={400}
-              />
+                  language="cpp"
+                  label="C++"
+                  title="Party System MVVM Example"
+                  collapsedHeight={400}
+                />
+              </div>
             </div>
-          </div>
-
+          </article>
+          
           {/* Performance Optimization */}
-          <div style={{
+          <article className="w-full min-w-0 h-full rounded-2xl border border-zinc-200 bg-white shadow-sm flex flex-col" style={{
             background: '#ffffff',
             borderRadius: '20px',
             padding: '40px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
             border: '1px solid #e2e8f0',
-            width: '100%',
-            minWidth: '0',
-            maxWidth: '100%',
             boxSizing: 'border-box',
             overflow: 'hidden'
           }}>
@@ -458,18 +450,15 @@ private:
             <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.3rem', marginBottom: '24px' }}>
               {t.technicalHighlights.performance.desc}
             </p>
-          </div>
+          </article>
           
           {/* Core Systems */}
-          <div style={{
+          <article className="w-full min-w-0 h-full rounded-2xl border border-zinc-200 bg-white shadow-sm flex flex-col" style={{
             background: '#ffffff',
             borderRadius: '20px',
             padding: '40px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
             border: '1px solid #e2e8f0',
-            width: '100%',
-            minWidth: '0',
-            maxWidth: '100%',
             boxSizing: 'border-box',
             overflow: 'hidden'
           }}>
@@ -479,7 +468,7 @@ private:
             <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.3rem', marginBottom: '24px' }}>
               {t.technicalHighlights.systems.desc}
             </p>
-          </div>
+          </article>
         </div>
       </section>
 
