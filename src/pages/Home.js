@@ -352,14 +352,26 @@ const Home = () => {
           ⚡ {t.technicalHighlights.title}
         </h2>
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+          gap: '32px',
+          width: '100%',
+          maxWidth: '100%',
+          overflow: 'hidden'
+        }}>
           {/* MVVM Architecture */}
           <div style={{
             background: '#ffffff',
             borderRadius: '20px',
             padding: '40px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-            border: '1px solid #e2e8f0'
+            border: '1px solid #e2e8f0',
+            width: '100%',
+            minWidth: '0',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
+            overflow: 'hidden'
           }}>
             <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '24px', color: '#1a202c' }}>
               🏗️ {t.technicalHighlights.architecture.title}
@@ -426,14 +438,19 @@ private:
               />
             </div>
           </div>
-          
+
           {/* Performance Optimization */}
           <div style={{
             background: '#ffffff',
             borderRadius: '20px',
             padding: '40px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-            border: '1px solid #e2e8f0'
+            border: '1px solid #e2e8f0',
+            width: '100%',
+            minWidth: '0',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
+            overflow: 'hidden'
           }}>
             <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '24px', color: '#1a202c' }}>
               🚀 {t.technicalHighlights.performance.title}
@@ -449,7 +466,12 @@ private:
             borderRadius: '20px',
             padding: '40px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-            border: '1px solid #e2e8f0'
+            border: '1px solid #e2e8f0',
+            width: '100%',
+            minWidth: '0',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
+            overflow: 'hidden'
           }}>
             <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '24px', color: '#1a202c' }}>
               ⚙️ {t.technicalHighlights.systems.title}
@@ -500,9 +522,9 @@ private:
 
       {/* Navigation Cards */}
       <section style={{ marginBottom: '80px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
+        <div className="responsive-grid-navigation">
           <Link to="/contributions" style={{ textDecoration: 'none' }}>
-            <div style={{
+            <div className="mobile-card" style={{
               background: '#ffffff',
               borderRadius: '20px',
               padding: '40px',
@@ -510,7 +532,14 @@ private:
               border: '1px solid #e2e8f0',
               transition: 'transform 0.2s, box-shadow 0.2s',
               cursor: 'pointer',
-              height: '100%'
+              height: '100%',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box',
+              overflow: 'hidden',
+              contain: 'layout',
+              flexShrink: '1',
+              flexGrow: '0'
             }} onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-5px)';
               e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
@@ -531,7 +560,7 @@ private:
           </Link>
           
           <Link to="/interactive-ui" style={{ textDecoration: 'none' }}>
-            <div style={{
+            <div className="mobile-card" style={{
               background: '#ffffff',
               borderRadius: '20px',
               padding: '40px',
@@ -539,7 +568,14 @@ private:
               border: '1px solid #e2e8f0',
               transition: 'transform 0.2s, box-shadow 0.2s',
               cursor: 'pointer',
-              height: '100%'
+              height: '100%',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box',
+              overflow: 'hidden',
+              contain: 'layout',
+              flexShrink: '1',
+              flexGrow: '0'
             }} onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-5px)';
               e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
@@ -560,7 +596,7 @@ private:
           </Link>
           
           <Link to="/optimization" style={{ textDecoration: 'none' }}>
-            <div style={{
+            <div className="mobile-card" style={{
               background: '#ffffff',
               borderRadius: '20px',
               padding: '40px',
@@ -568,7 +604,14 @@ private:
               border: '1px solid #e2e8f0',
               transition: 'transform 0.2s, box-shadow 0.2s',
               cursor: 'pointer',
-              height: '100%'
+              height: '100%',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box',
+              overflow: 'hidden',
+              contain: 'layout',
+              flexShrink: '1',
+              flexGrow: '0'
             }} onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-5px)';
               e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
@@ -589,7 +632,7 @@ private:
           </Link>
           
           <Link to="/vision" style={{ textDecoration: 'none' }}>
-            <div style={{
+            <div className="mobile-card" style={{
               background: '#ffffff',
               borderRadius: '20px',
               padding: '40px',
@@ -597,7 +640,14 @@ private:
               border: '1px solid #e2e8f0',
               transition: 'transform 0.2s, box-shadow 0.2s',
               cursor: 'pointer',
-              height: '100%'
+              height: '100%',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box',
+              overflow: 'hidden',
+              contain: 'layout',
+              flexShrink: '1',
+              flexGrow: '0'
             }} onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-5px)';
               e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';

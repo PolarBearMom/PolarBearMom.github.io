@@ -101,6 +101,76 @@ section {
   background-clip: text;
 }
 
+/* Responsive Grid Layouts */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  grid-auto-rows: minmax(auto, 1fr);
+  align-items: stretch;
+}
+
+.responsive-grid-navigation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  grid-auto-rows: minmax(auto, 1fr);
+  align-items: stretch;
+}
+
+/* Responsive breakpoints for smooth transitions */
+@media (max-width: 1200px) {
+  .responsive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+  
+  .responsive-grid-navigation {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .responsive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  
+  .responsive-grid-navigation {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-grid,
+  .responsive-grid-navigation {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  
+  /* Adjust card padding for mobile */
+  .mobile-card {
+    padding: 24px !important;
+  }
+  
+  /* Adjust text sizes for mobile */
+  .mobile-text {
+    font-size: 1.1rem !important;
+  }
+  
+  .mobile-title {
+    font-size: 1.5rem !important;
+  }
+}
+
 /* Glass morphism effect */
 .glass {
   background: rgba(255, 255, 255, 0.95);
