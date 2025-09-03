@@ -370,7 +370,12 @@ const Home = () => {
             <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.3rem', marginBottom: '24px' }}>
               {t.technicalHighlights.architecture.desc}
             </p>
-            <div className="min-w-0" style={{ display: 'grid', gap: '16px' }}>
+            {/* 모바일에서는 세로 배치, PC에서는 가로 배치 */}
+            <div className="min-w-0 mvvm-architecture-content" style={{ 
+              display: 'grid', 
+              gap: '16px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
+            }}>
               <div className="min-w-0">
                 <MvvmFlowDiagram />
               </div>
