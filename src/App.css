@@ -137,17 +137,9 @@ section {
   }
 }
 
-/* MVVM Architecture Card Mobile Responsiveness */
-@media (max-width: 768px) {
-  .mvvm-architecture-content {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-  
-  .mvvm-architecture-content > div {
-    min-width: 0 !important;
-    width: 100% !important;
-  }
+/* MVVM Architecture Card - Always vertical layout */
+.mvvm-architecture-content {
+  grid-template-columns: 1fr !important;  /* 항상 1열 (세로 배치) */
 }
 
 @media (max-width: 900px) {
