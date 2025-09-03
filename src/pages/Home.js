@@ -550,32 +550,81 @@ bool IsItemVisible(const FItemData& Item, EFilterMask VisibleMask, EFilterMask A
                 },
                 {
                   id: "icon",
-                  title: "🎨 Asset Icon Caching & Batch Update",
-                  badge: "아이콘 재생성 0회(델타만)",
-                  preview: "아이콘 속성 TMap 캐싱 + 슬롯 단위 배치 갱신으로 재생성 제거",
+                  title: "🎨 통합 슬롯 베이스 시스템",
+                  badge: "다양한 위젯 타입을 하나의 클래스로 통합",
+                  preview: "UBaseSlot 베이스 클래스로 아이템/스킬/버프 등 모든 아이콘 슬롯을 상속받아 통합 관리하는 시스템",
 
                                       children: (
                       <>
                         <p style={{ color: '#4b5563', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
-                          "아이콘 속성 TMap 캐싱 + 슬롯 단위 배치 갱신으로 재생성 제거"
+                          "하나의 베이스 클래스에서 다양한 위젯 타입들을 통합 관리하고, 스코프 기반 자동 속성 생성으로 모든 아이콘 슬롯을 상속받아 관리하는 혁신적 시스템"
                         </p>
                         <ul style={{ color: '#374151', fontSize: '1.2rem', lineHeight: '1.7', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
-                          <li style={{ marginBottom: '8px' }}><strong>슬롯ID 키로 필요한 속성만 저장/갱신</strong></li>
-                          <li style={{ marginBottom: '8px' }}><strong>동일 Slot이면 변경분만 Refresh (전체 재빌드 X)</strong></li>
-                          <li style={{ marginBottom: '8px' }}><strong>리스트 스크롤 시 캐시 재사용</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>통합 베이스 관리:</strong> 다양한 위젯 타입들을 하나의 함수로 통합 처리</li>
+                          <li style={{ marginBottom: '8px' }}><strong>자동 컴포넌트 등록:</strong> 컴포넌트 등록 시스템으로 Blueprint 위젯들을 자동으로 관리</li>
+                          <li style={{ marginBottom: '8px' }}><strong>스코프 기반 자동 생성:</strong> 범위별로 아이템/스킬/인벤토리 등 자동으로 속성 생성</li>
+                          <li style={{ marginBottom: '8px' }}><strong>델타 업데이트:</strong> 변경된 슬롯만 갱신하여 전체 재빌드 방지</li>
                         </ul>
                         <div style={{ marginBottom: '16px', padding: '12px', background: '#fef3c7', borderRadius: '8px', fontSize: '1.1rem', color: '#78350f', border: '1px solid #fbbf24' }}>
-                          메모리 효율↑, 호출 횟수↓, 캐시 재사용으로 중복 처리 방지
+                          다양한 위젯 타입들을 통합 관리하고, 자동 컴포넌트 등록, 스코프 기반 속성 생성, 델타 업데이트로 완벽한 확장성과 성능을 제공하는 혁신적 아키텍처
                         </div>
                         <CodeCardCollapsible
-                          code={`PropsBySlot.FindOrAdd(SlotId).Add(Tag, Attr);
-if (Changed(SlotId)) RefreshSlotDelta(SlotId);
-// 캐시 재사용으로 재생성 제거`}
+                          code={`// 통합 슬롯 베이스 클래스
+class UBaseSlot : public UCommonUserWidget
+{
+    // 핵심 통합 함수들
+    void SetSlotData(FIconData IconData);                                    // 통합 데이터 설정
+    void RefreshUIComponent(const FWidgetDetails& Details);                  // 다양한 위젯 타입 통합 처리
+    void RegisterComponents();                                                // 자동 컴포넌트 등록
+    
+    // 다양한 위젯 타입별 Refresh 함수들
+    void Refresh_Icon(UWidget*, FName);                                      // 아이콘 이미지
+    void Refresh_Grade(UWidget*, int32, int32);                             // 등급 표시
+    void Refresh_CoolTime(UWidget*, float);                                  // 쿨타임
+    void Refresh_Count(UWidget*, int64);                                     // 개수
+    // ... 기타 위젯 타입들
+};
+
+// 상속 구조
+class UItemSlot : public UBaseSlot;      // 아이템 전용 기능
+class USkillSlot : public UBaseSlot;     // 스킬 전용 기능
+class UBuffSlot : public UBaseSlot;      // 버프 전용 기능
+
+// 데이터 구조
+struct FIconData {
+    ESlotScope SlotScope;                                                      // 슬롯 범위
+    int64 UniqueID;                                                            // 고유 번호
+    TMap<EWidgetType, FWidgetDetails> WidgetDetailsList;
+};
+
+// 위젯 타입
+enum class EWidgetType : uint8 {
+    Icon, Grade, Count, Upgrade, Lock, Equip, CoolTime, 
+    Reinforce, Combo, ToolTip, ActionName, LimitLevel, RankGrade
+    // ... 기타 타입들
+};`}
                           language="cpp"
-                          title="Asset Icon Caching Implementation"
+                          title="Unified Slot Base System Architecture"
                           label="C++"
-                          collapsedHeight={120}
+                          collapsedHeight={200}
                         />
+
+                        {/* 시스템 구조 다이어그램 추가 */}
+                        <div style={{ marginTop: '24px', padding: '20px', background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                          <h5 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '16px', color: '#374151' }}>
+                            🏗️ 시스템 구조 다이어그램
+                          </h5>
+                          <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+                            <img 
+                              src="/UBaseSlot.jpg" 
+                              alt="UBaseSlot 슬롯 시스템 계층 구조 다이어그램"
+                              style={{ maxWidth: '300px', height: 'auto' }}
+                            />
+                          </div>
+                          <p style={{ fontSize: '0.95rem', color: '#6b7280', textAlign: 'center', margin: 0 }}>
+                            UBaseSlot을 부모로 하는 계층 구조와 데이터 흐름을 시각화한 다이어그램
+                          </p>
+                        </div>
                       </>
                     ),
                 },

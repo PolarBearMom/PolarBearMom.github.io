@@ -256,22 +256,22 @@ const CodeCardCollapsible = ({
             borderTop: '1px solid #e4e4e7',
             backgroundColor: '#f8f9fa'
           }}>
-            <button
-              onClick={() => setOpen((v) => !v)}
-              style={{
-                fontSize: '12px',
-                padding: '4px 12px',
-                borderRadius: '6px',
-                border: '1px solid #d1d5db',
-                backgroundColor: 'white',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#f3f4f6'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
-            >
-              {open ? "Collapse" : "Show more"}
-            </button>
+                         <button
+               onClick={() => setOpen((v) => !v)}
+               style={{
+                 fontSize: '12px',
+                 padding: '4px 12px',
+                 borderRadius: '6px',
+                 border: '1px solid #d1d5db',
+                 backgroundColor: 'white',
+                 cursor: 'pointer',
+                 transition: 'all 0.2s ease'
+               }}
+               onMouseEnter={(e) => e.target.style.backgroundColor = '#f3f4f6'}
+               onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
+             >
+               {open ? "Collapse" : "Show more"}
+             </button>
           </div>
         )}
       </div>
