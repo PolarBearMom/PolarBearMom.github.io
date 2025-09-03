@@ -39,7 +39,7 @@ const Navbar = () => {
       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
       fontFamily: 'Noto Sans KR, -apple-system, BlinkMacSystemFont, sans-serif'
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 32px' }}>
+      <div style={{ maxWidth: 'min(100%, 1200px)', margin: '0 auto', padding: '0 16px', width: '100%' }}>
         <div style={{ 
           display: 'flex', 
           justifyContent: 'space-between', 
@@ -66,7 +66,7 @@ const Navbar = () => {
           </Link>
           
           {/* Navigation Menu */}
-          <div style={{ display: 'flex', gap: '40px', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
             {navItems.map((item) => (
               <Link
                 key={item.path}
