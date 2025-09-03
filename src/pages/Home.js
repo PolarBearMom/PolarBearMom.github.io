@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../LangContext';
 import MvvmFlowDiagram from '../components/MvvmFlowDiagram';
 import CodeCardCollapsible from '../components/CodeCardCollapsible';
+import PerformanceAccordion from '../components/PerformanceAccordion';
 
 const Home = () => {
   const { lang } = useLang();
@@ -353,7 +354,7 @@ const Home = () => {
         </h2>
         
         {/* 1 → 2 → 3 고정 전환 - 왼쪽부터 시작 */}
-        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-stretch justify-items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-6 gap-x-4 sm:gap-x-5 lg:gap-x-6 items-stretch justify-items-start">
           {/* MVVM Architecture */}
           <article className="w-full min-w-0 h-full rounded-2xl border border-zinc-200 bg-white shadow-sm flex flex-col" style={{
             background: '#ffffff',
@@ -364,10 +365,10 @@ const Home = () => {
             boxSizing: 'border-box',
             overflow: 'hidden'
           }}>
-            <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '24px', color: '#1a202c' }}>
+            <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '28px', color: '#1a202c' }}>
               🏗️ {t.technicalHighlights.architecture.title}
             </h3>
-            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.3rem', marginBottom: '24px' }}>
+            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.5rem', marginBottom: '28px' }}>
               {t.technicalHighlights.architecture.desc}
             </p>
             {/* PC와 모바일 모두에서 세로 배치 유지 */}
@@ -440,190 +441,152 @@ private:
           </article>
           
           {/* Performance Optimization */}
-          <article className="w-full min-w-0 h-full rounded-2xl border border-zinc-200 bg-white shadow-sm flex flex-col" style={{
-            background: '#ffffff',
-            borderRadius: '20px',
-            padding: '40px',
-            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-            border: '1px solid #e2e8f0',
-            boxSizing: 'border-box',
-            overflow: 'hidden'
-          }}>
-            <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '24px', color: '#1a202c' }}>
+                      <article 
+              aria-label="Performance Optimization"
+              className="w-full min-w-0 h-full rounded-2xl border border-zinc-200 bg-white shadow-sm flex flex-col"
+              style={{
+                background: '#ffffff',
+                borderRadius: '20px',
+                padding: '40px',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                border: '1px solid #e2e8f0',
+                boxSizing: 'border-box',
+                overflow: 'hidden'
+              }}>
+            <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '28px', color: '#1a202c' }}>
               🚀 {t.technicalHighlights.performance.title}
             </h3>
-            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.3rem', marginBottom: '24px' }}>
+            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.5rem', marginBottom: '28px' }}>
               {t.technicalHighlights.performance.desc}
             </p>
             
-            {/* Performance Optimization Details */}
-            <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))' }}>
-              {/* BitMask Filtering */}
-              <div style={{ 
-                background: 'rgba(255, 255, 255, 0.8)', 
-                backdropFilter: 'blur(10px)',
-                padding: '28px', 
-                borderRadius: '16px',
-                border: '1px solid #e5e7eb',
-                minHeight: '320px'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
-                  <h4 style={{ fontSize: '1.3rem', fontWeight: '600', color: '#1f2937', margin: 0 }}>
-                    🔍 BitMask 기반 O(1) 필터링
-                  </h4>
-                  <div style={{ 
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '6px', 
-                    borderRadius: '9999px', 
-                    border: '1px solid #d1d5db', 
-                    padding: '6px 12px', 
-                    fontSize: '0.85rem', 
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    color: '#059669',
-                    fontWeight: '500'
-                  }}>
-                    필터링 처리 0.2ms → 0.03ms
-                  </div>
+            {/* 성능 최적화 핵심 요약 */}
+            <div style={{ 
+              background: '#f8fafc', 
+              padding: '20px', 
+              borderRadius: '16px',
+              border: '1px solid #e5e7eb',
+              marginBottom: '24px'
+            }}>
+              <h4 style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '24px', color: '#1f2937' }}>
+                📊 성능 최적화 핵심 요약
+              </h4>
+              <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+                <div style={{ padding: '20px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
+                  <strong style={{ color: '#0369a1', fontSize: '1.4rem' }}>필터링:</strong> 
+                  <span style={{ color: '#0c4a6e', fontSize: '1.3rem' }}>BitMask + Enum 최적화로 상수시간 필터링 & 최소 렌더</span>
                 </div>
-                <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
-                  "32bit BitMask + Enum 순회 최적화로 상수 시간 필터링, Delta Update만 렌더"
-                </p>
-                <ul style={{ color: '#374151', fontSize: '1rem', lineHeight: '1.7', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
-                  <li style={{ marginBottom: '8px' }}><strong>비트 OR/AND로 on/off:</strong> 상태는 정수 1개에 압축 저장</li>
-                  <li style={{ marginBottom: '8px' }}><strong>ForEachEnum&lt;Filter&gt;로 활성 토글만 순회</strong></li>
-                  <li style={{ marginBottom: '8px' }}><strong>FieldNotify로 변경 필드만 브로드캐스트</strong></li>
-                </ul>
-                <div style={{ marginBottom: '16px', padding: '12px', background: '#f0f9ff', borderRadius: '8px', fontSize: '0.9rem', color: '#0c4a6e', border: '1px solid #bae6fd' }}>
-                  필터 상태는 Enum+BitMask로 압축 저장, 캐시 친화적인 연속 메모리 접근
+                <div style={{ padding: '20px', background: '#fef3c7', borderRadius: '12px', border: '1px solid #fbbf24' }}>
+                  <strong style={{ color: '#92400e', fontSize: '1.4rem' }}>아이콘:</strong> 
+                  <span style={{ color: '#78350f', fontSize: '1.3rem' }}>속성 캐싱 + 슬롯 델타 갱신으로 불필요 재생성 제거</span>
                 </div>
-                <div style={{ background: '#f8fafc', padding: '12px', borderRadius: '8px', fontSize: '0.85rem', fontFamily: 'monospace', color: '#374151', border: '1px solid #e5e7eb' }}>
-                  Mask |= (1u &lt;&lt; (uint8)Filter);     // add<br/>
-                  Mask &= ~(1u &lt;&lt; (uint8)Filter);     // remove<br/>
-                  UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetFiltered); // delta UI
-                </div>
-              </div>
-              
-              {/* Asset Icon Caching */}
-              <div style={{ 
-                background: 'rgba(255, 255, 255, 0.8)', 
-                backdropFilter: 'blur(10px)',
-                padding: '28px', 
-                borderRadius: '16px',
-                border: '1px solid #e5e7eb',
-                minHeight: '320px'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
-                  <h4 style={{ fontSize: '1.3rem', fontWeight: '600', color: '#1f2937', margin: 0 }}>
-                    🎨 Asset Icon Caching & Batch Update
-                  </h4>
-                  <div style={{ 
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '6px', 
-                    borderRadius: '9999px', 
-                    border: '1px solid #d1d5db', 
-                    padding: '6px 12px', 
-                    fontSize: '0.85rem', 
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    color: '#059669',
-                    fontWeight: '500'
-                  }}>
-                    아이콘 재생성 0회(델타만)
-                  </div>
-                </div>
-                <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
-                  "아이콘 속성 TMap 캐싱 + 슬롯 단위 배치 갱신으로 재생성 제거"
-                </p>
-                <ul style={{ color: '#374151', fontSize: '1rem', lineHeight: '1.7', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
-                  <li style={{ marginBottom: '8px' }}><strong>슬롯ID 키로 필요한 속성만 저장/갱신</strong></li>
-                  <li style={{ marginBottom: '8px' }}><strong>동일 Slot이면 변경분만 Refresh (전체 재빌드 X)</strong></li>
-                  <li style={{ marginBottom: '8px' }}><strong>리스트 스크롤 시 캐시 재사용</strong></li>
-                </ul>
-                <div style={{ marginBottom: '16px', padding: '12px', background: '#fef3c7', borderRadius: '8px', fontSize: '0.9rem', color: '#78350f', border: '1px solid #fbbf24' }}>
-                  메모리 효율↑, 호출 횟수↓, 캐시 재사용으로 중복 처리 방지
-                </div>
-                <div style={{ background: '#f8fafc', padding: '12px', borderRadius: '8px', fontSize: '0.85rem', fontFamily: 'monospace', color: '#374151', border: '1px solid #e5e7eb' }}>
-                  PropsBySlot.FindOrAdd(SlotId).Add(Tag, Attr);<br/>
-                  if (Changed(SlotId)) RefreshSlotDelta(SlotId);<br/>
-                  // 캐시 재사용으로 재생성 제거
-                </div>
-              </div>
-              
-              {/* Inventory Interfaces */}
-              <div style={{ 
-                background: 'rgba(255, 255, 255, 0.8)', 
-                backdropFilter: 'blur(10px)',
-                padding: '28px', 
-                borderRadius: '16px',
-                border: '1px solid #e5e7eb',
-                minHeight: '320px'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
-                  <h4 style={{ fontSize: '1.3rem', fontWeight: '600', color: '#1f2937', margin: 0 }}>
-                    🔧 Inventory Interfaces (Observer)
-                  </h4>
-                  <div style={{ 
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '6px', 
-                    borderRadius: '9999px', 
-                    border: '1px solid #d1d5db', 
-                    padding: '6px 12px', 
-                    fontSize: '0.85rem', 
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    color: '#059669',
-                    fontWeight: '500'
-                  }}>
-                    UI 업데이트 호출 -35%
-                  </div>
-                </div>
-                <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
-                  "모델 델리게이트 구독 → ViewModel FieldNotify → UI 자동 동기화"
-                </p>
-                <ul style={{ color: '#374151', fontSize: '1rem', lineHeight: '1.7', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
-                  <li style={{ marginBottom: '8px' }}><strong>인터페이스로 액션(선택/해제/활성)을 추상화</strong></li>
-                  <li style={{ marginBottom: '8px' }}><strong>Observer로 변경 이벤트만 전달</strong></li>
-                  <li style={{ marginBottom: '8px' }}><strong>Command-style 델리게이트로 입력 일원화</strong></li>
-                </ul>
-                <div style={{ marginBottom: '16px', padding: '12px', background: '#ecfdf5', borderRadius: '8px', fontSize: '0.9rem', color: '#064e3b', border: '1px solid #34d399' }}>
-                  느슨한 결합으로 확장성↑, 코드 재사용성↑, 유지보수성 향상
-                </div>
-                <div style={{ background: '#f8fafc', padding: '12px', borderRadius: '8px', fontSize: '0.85rem', fontFamily: 'monospace', color: '#374151', border: '1px solid #e5e7eb' }}>
-                  Inventory.OnChanged.AddUObject(this, &amp;ThisVM::OnChanged);<br/>
-                  UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetItems);<br/>
-                  UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetSelected);
-                </div>
-              </div>
-              
-              {/* Performance Summary */}
-              <div style={{ 
-                padding: '28px', 
-                background: 'rgba(255, 255, 255, 0.8)', 
-                backdropFilter: 'blur(10px)',
-                borderRadius: '16px',
-                border: '1px solid #e5e7eb',
-                gridColumn: '1 / -1'
-              }}>
-                <h4 style={{ fontSize: '1.3rem', fontWeight: '600', marginBottom: '20px', color: '#1f2937' }}>
-                  📊 성능 최적화 핵심 요약
-                </h4>
-                <div style={{ display: 'grid', gap: '20px', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
-                  <div style={{ padding: '16px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
-                    <strong style={{ color: '#0369a1', fontSize: '1rem' }}>필터링:</strong> 
-                    <span style={{ color: '#0c4a6e', fontSize: '0.95rem' }}>BitMask + Enum 최적화로 상수시간 필터링 & 최소 렌더</span>
-                  </div>
-                  <div style={{ padding: '16px', background: '#fef3c7', borderRadius: '12px', border: '1px solid #fbbf24' }}>
-                    <strong style={{ color: '#92400e', fontSize: '1rem' }}>아이콘:</strong> 
-                    <span style={{ color: '#78350f', fontSize: '0.95rem' }}>속성 캐싱 + 슬롯 델타 갱신으로 불필요 재생성 제거</span>
-                  </div>
-                  <div style={{ padding: '16px', background: '#ecfdf5', borderRadius: '12px', border: '1px solid #34d399' }}>
-                    <strong style={{ color: '#065f46', fontSize: '1rem' }}>인벤토리:</strong> 
-                    <span style={{ color: '#064e3b', fontSize: '0.95rem' }}>Observer + FieldNotify로 이벤트 기반 UI 동기화</span>
-                  </div>
+                <div style={{ padding: '20px', background: '#ecfdf5', borderRadius: '12px', border: '1px solid #34d399' }}>
+                  <strong style={{ color: '#065f46', fontSize: '1.4rem' }}>인벤토리:</strong> 
+                  <span style={{ color: '#064e3b', fontSize: '1.3rem' }}>Observer + FieldNotify로 이벤트 기반 UI 동기화</span>
                 </div>
               </div>
             </div>
+            
+            {/* Performance Optimization Details */}
+            <PerformanceAccordion
+              items={[
+                {
+                  id: "bitmask",
+                  title: "🔍 BitMask 기반 O(1) 필터링",
+                  badge: "필터링 처리 0.2ms → 0.03ms",
+                  preview: "32bit BitMask + Enum 순회 최적화로 상수 시간 필터링, Delta Update만 렌더",
+
+                                      children: (
+                      <>
+                        <p style={{ color: '#4b5563', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
+                          "32bit BitMask + Enum 순회 최적화로 상수 시간 필터링, Delta Update만 렌더"
+                        </p>
+                        <ul style={{ color: '#374151', fontSize: '1.2rem', lineHeight: '1.7', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
+                          <li style={{ marginBottom: '8px' }}><strong>비트 OR/AND로 on/off:</strong> 상태는 정수 1개에 압축 저장</li>
+                          <li style={{ marginBottom: '8px' }}><strong>ForEachEnum&lt;Filter&gt;로 활성 토글만 순회</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>FieldNotify로 변경 필드만 브로드캐스트</strong></li>
+                        </ul>
+                        <div style={{ marginBottom: '16px', padding: '12px', background: '#f0f9ff', borderRadius: '8px', fontSize: '1.1rem', color: '#0c4a6e', border: '1px solid #bae6fd' }}>
+                          필터 상태는 Enum+BitMask로 압축 저장, 캐시 친화적인 연속 메모리 접근
+                        </div>
+                        <CodeCardCollapsible
+                          code={`Mask |= (1u << (uint8)Filter);     // add
+Mask &= ~(1u << (uint8)Filter);     // remove
+UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetFiltered); // delta UI`}
+                          language="cpp"
+                          title="BitMask Filter Operations"
+                          label="C++"
+                          collapsedHeight={120}
+                        />
+                      </>
+                    ),
+                },
+                {
+                  id: "icon",
+                  title: "🎨 Asset Icon Caching & Batch Update",
+                  badge: "아이콘 재생성 0회(델타만)",
+                  preview: "아이콘 속성 TMap 캐싱 + 슬롯 단위 배치 갱신으로 재생성 제거",
+
+                                      children: (
+                      <>
+                        <p style={{ color: '#4b5563', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
+                          "아이콘 속성 TMap 캐싱 + 슬롯 단위 배치 갱신으로 재생성 제거"
+                        </p>
+                        <ul style={{ color: '#374151', fontSize: '1.2rem', lineHeight: '1.7', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
+                          <li style={{ marginBottom: '8px' }}><strong>슬롯ID 키로 필요한 속성만 저장/갱신</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>동일 Slot이면 변경분만 Refresh (전체 재빌드 X)</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>리스트 스크롤 시 캐시 재사용</strong></li>
+                        </ul>
+                        <div style={{ marginBottom: '16px', padding: '12px', background: '#fef3c7', borderRadius: '8px', fontSize: '1.1rem', color: '#78350f', border: '1px solid #fbbf24' }}>
+                          메모리 효율↑, 호출 횟수↓, 캐시 재사용으로 중복 처리 방지
+                        </div>
+                        <CodeCardCollapsible
+                          code={`PropsBySlot.FindOrAdd(SlotId).Add(Tag, Attr);
+if (Changed(SlotId)) RefreshSlotDelta(SlotId);
+// 캐시 재사용으로 재생성 제거`}
+                          language="cpp"
+                          title="Asset Icon Caching Implementation"
+                          label="C++"
+                          collapsedHeight={120}
+                        />
+                      </>
+                    ),
+                },
+                {
+                  id: "inventory",
+                  title: "🔧 Inventory Interfaces (Observer)",
+                  badge: "UI 업데이트 호출 -35%",
+                  preview: "모델 델리게이트 구독 → ViewModel FieldNotify → UI 자동 동기화",
+
+                                      children: (
+                      <>
+                        <p style={{ color: '#4b5563', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
+                          "모델 델리게이트 구독 → ViewModel FieldNotify → UI 자동 동기화"
+                        </p>
+                        <ul style={{ color: '#374151', fontSize: '1.2rem', lineHeight: '1.7', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
+                          <li style={{ marginBottom: '8px' }}><strong>인터페이스로 액션(선택/해제/활성)을 추상화</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>Observer로 변경 이벤트만 전달</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>Command-style 델리게이트로 입력 일원화</strong></li>
+                        </ul>
+                        <div style={{ marginBottom: '16px', padding: '12px', background: '#ecfdf5', borderRadius: '8px', fontSize: '1.1rem', color: '#064e3b', border: '1px solid #34d399' }}>
+                          느슨한 결합으로 확장성↑, 코드 재사용성↑, 유지보수성 향상
+                        </div>
+                        <CodeCardCollapsible
+                          code={`Inventory.OnChanged.AddUObject(this, &ThisVM::OnChanged);
+UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetItems);
+UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetSelected);`}
+                          language="cpp"
+                          title="Inventory Observer Pattern Implementation"
+                          label="C++"
+                          collapsedHeight={120}
+                        />
+                      </>
+                    ),
+                },
+              ]}
+            />
+            
+
           </article>
           
           {/* Core Systems */}
@@ -636,10 +599,10 @@ private:
             boxSizing: 'border-box',
             overflow: 'hidden'
           }}>
-            <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '24px', color: '#1a202c' }}>
+            <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '28px', color: '#1a202c' }}>
               ⚙️ {t.technicalHighlights.systems.title}
             </h3>
-            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.3rem', marginBottom: '24px' }}>
+            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.5rem', marginBottom: '28px' }}>
               {t.technicalHighlights.systems.desc}
             </p>
             

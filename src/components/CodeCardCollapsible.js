@@ -160,46 +160,46 @@ const CodeCardCollapsible = ({
 
           <Highlight theme={vsLightThemeClassic} code={code.trimEnd()} language="cpp">
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
-              <pre
-                style={{
-                  margin: 0,
-                  fontFamily: "Consolas, 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace",
-                  fontSize: '13px',
-                  lineHeight: '1.7',
-                  background: 'transparent',
-                  whiteSpace: 'pre',
-                  WebkitFontSmoothing: 'antialiased',
-                  MozOsxFontSmoothing: 'grayscale',
-                  textRendering: 'optimizeLegibility',
-                  tabSize: 4
-                }}
-              >
-                {tokens.map((line, i) => (
-                  <div key={i} {...getLineProps({ line, key: i })} style={{
+                              <pre
+                  style={{
+                    margin: 0,
+                    fontFamily: "Consolas, 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace",
+                    fontSize: '15px',
+                    lineHeight: '1.7',
+                    background: 'transparent',
                     whiteSpace: 'pre',
-                    display: 'flex',
-                    minHeight: '22.1px',
-                    alignItems: 'center'
-                  }}>
-                    {/* line number */}
-                    <span style={{
-                      width: '3ch',
-                      textAlign: 'right',
-                      paddingRight: '12px',
-                      userSelect: 'none',
-                      color: '#9aa1ac',
-                      flexShrink: 0,
-                      fontSize: '13px',
-                      lineHeight: '1.7'
+                    WebkitFontSmoothing: 'antialiased',
+                    MozOsxFontSmoothing: 'grayscale',
+                    textRendering: 'optimizeLegibility',
+                    tabSize: 4
+                  }}
+                >
+                  {tokens.map((line, i) => (
+                    <div key={i} {...getLineProps({ line, key: i })} style={{
+                      whiteSpace: 'pre',
+                      display: 'flex',
+                      minHeight: '25.5px',
+                      alignItems: 'center'
                     }}>
-                      {i + 1}
-                    </span>
-                    <span style={{
-                      flex: 1,
-                      minWidth: 0,
-                      fontSize: '13px',
-                      lineHeight: '1.7'
-                    }}>
+                      {/* line number */}
+                      <span style={{
+                        width: '3ch',
+                        textAlign: 'right',
+                        paddingRight: '12px',
+                        userSelect: 'none',
+                        color: '#9aa1ac',
+                        flexShrink: 0,
+                        fontSize: '15px',
+                        lineHeight: '1.7'
+                      }}>
+                        {i + 1}
+                      </span>
+                      <span style={{
+                        flex: 1,
+                        minWidth: 0,
+                        fontSize: '15px',
+                        lineHeight: '1.7'
+                      }}>
                       {line.map((token, key) => {
                         const tokenProps = getTokenProps({ token, key });
                         
@@ -342,7 +342,7 @@ const CodeCardCollapsible = ({
                     style={{
                       margin: 0,
                       fontFamily: "Consolas, 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace",
-                      fontSize: '13px',
+                      fontSize: '15px',
                       lineHeight: '1.7',
                       background: 'transparent',
                       tabSize: 4
@@ -352,7 +352,7 @@ const CodeCardCollapsible = ({
                       <div key={i} {...getLineProps({ line, key: i })} style={{
                         whiteSpace: 'pre',
                         display: 'flex',
-                        minHeight: '22.1px',
+                        minHeight: '25.5px',
                         alignItems: 'center'
                       }}>
                         <span style={{
@@ -362,15 +362,15 @@ const CodeCardCollapsible = ({
                           userSelect: 'none',
                           color: '#9aa1ac',
                           flexShrink: 0,
-                          fontSize: '13px',
-                          lineHeight: '1.7'
+                          fontSize: '15px',
+                      lineHeight: '1.7'
                         }}>
                           {i + 1}
                         </span>
                         <span style={{
                           flex: 1,
                           minWidth: 0,
-                          fontSize: '13px',
+                          fontSize: '15px',
                           lineHeight: '1.7'
                         }}>
                           {line.map((token, key) => (

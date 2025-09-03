@@ -124,6 +124,19 @@ section {
   align-items: stretch;
 }
 
+/* Line clamp utility for text truncation */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Prism/Highlight가 인라인 코드에 색 입히는 걸 무효화 (pre 밖) */
+:not(pre) > code span { 
+  all: unset; 
+}
+
 /* Responsive breakpoints for smooth transitions */
 @media (max-width: 1200px) {
   .responsive-grid {
