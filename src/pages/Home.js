@@ -474,7 +474,7 @@ private:
               <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
                 <div style={{ padding: '20px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
                   <strong style={{ color: '#0369a1', fontSize: '1.4rem' }}>필터링:</strong> 
-                  <span style={{ color: '#0c4a6e', fontSize: '1.3rem' }}>BitMask + Enum 최적화로 상수시간 필터링 & 최소 렌더</span>
+                  <span style={{ color: '#0c4a6e', fontSize: '1.3rem' }}> BitMask 압축 · O(1) 판정 · 조건 통합 관리</span>
                 </div>
                 <div style={{ padding: '20px', background: '#fef3c7', borderRadius: '12px', border: '1px solid #fbbf24' }}>
                   <strong style={{ color: '#92400e', fontSize: '1.4rem' }}>아이콘:</strong> 
@@ -492,31 +492,58 @@ private:
               items={[
                 {
                   id: "bitmask",
-                  title: "🔍 BitMask 기반 O(1) 필터링",
-                  badge: "필터링 처리 0.2ms → 0.03ms",
-                  preview: "32bit BitMask + Enum 순회 최적화로 상수 시간 필터링, Delta Update만 렌더",
+                  title: "🔍 BitMask 기반 O(1) 필터링 시스템",
+                  badge: "비트 단위 압축 관리",
+                  preview: "하나의 정수를 비트 영역 분할하여 등록/제외 조건을 통합 관리하는 필터링 시스템",
 
                                       children: (
                       <>
                         <p style={{ color: '#4b5563', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
-                          "32bit BitMask + Enum 순회 최적화로 상수 시간 필터링, Delta Update만 렌더"
+                          "하나의 int32를 0~15bit(등록), 16~31bit(제외)로 분할하여 복잡한 필터링을 단순한 비트 연산으로 해결"
                         </p>
                         <ul style={{ color: '#374151', fontSize: '1.2rem', lineHeight: '1.7', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
-                          <li style={{ marginBottom: '8px' }}><strong>비트 OR/AND로 on/off:</strong> 상태는 정수 1개에 압축 저장</li>
-                          <li style={{ marginBottom: '8px' }}><strong>ForEachEnum&lt;Filter&gt;로 활성 토글만 순회</strong></li>
-                          <li style={{ marginBottom: '8px' }}><strong>FieldNotify로 변경 필드만 브로드캐스트</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>비트 영역 분할:</strong> 등록 조건(0~15bit)과 제외 조건(16~31bit)을 하나의 정수로 통합</li>
+                          <li style={{ marginBottom: '8px' }}><strong>O(1) 필터링:</strong> 비트 연산으로 복잡한 if-else 로직을 단순화</li>
+                          <li style={{ marginBottom: '8px' }}><strong>확장 가능한 설계:</strong> 새로운 필터 조건 추가 시 비트만 할당</li>
                         </ul>
                         <div style={{ marginBottom: '16px', padding: '12px', background: '#f0f9ff', borderRadius: '8px', fontSize: '1.1rem', color: '#0c4a6e', border: '1px solid #bae6fd' }}>
-                          필터 상태는 Enum+BitMask로 압축 저장, 캐시 친화적인 연속 메모리 접근
+                          하나의 정수로 반대되는 두 개념(등록/제외)을 논리적으로 분리하여 관리하는 혁신적 아키텍처
                         </div>
                         <CodeCardCollapsible
-                          code={`Mask |= (1u << (uint8)Filter);     // add
-Mask &= ~(1u << (uint8)Filter);     // remove
-UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetFiltered); // delta UI`}
+                          code={`// 비트 영역 분할로 등록/제외 조건 통합
+UENUM()
+enum class EItemFilterFlag : int32
+{
+    // 등록 조건 (0~15 bit)
+    Grade_Normal = 1 << 0,
+    Grade_Goodly = 1 << 1,  
+    ... 
+    
+    // 제외 조건 (16~31 bit)  
+    ExcludeStartBit = 1 << 16, 
+    Exclude_CollectionRegisterable = 1 << 17,
+    ... 
+};
+ENUM_CLASS_FLAGS(EItemFilterFlag)
+
+// 각 컨텐츠 별 필터 적용 시
+bool IsItemVisible(const FItemData& Item, EFilterMask VisibleMask, EFilterMask ActiveMask)
+{
+    // VisibleMask: 각 컨텐츠 전체 적용 대상 필터 마스크.
+    // ActiveMask: 컨텐츠 활성화 상태의 필터 마스크.
+    
+    // 제외 조건 먼저 체크 (16~31 bit)
+    if (ActiveMask & 0xFFFF0000 && IsExcludeMatched(Item, ActiveMask))
+        return false;
+    
+    // 등록 조건 체크 (0~15 bit)
+    return (Item.Grade & VisibleMask & 0xFFFF) && 
+           EnumHasAnyFlags(ActiveMask & 0xFFFF, Item.Grade);
+}`}
                           language="cpp"
-                          title="BitMask Filter Operations"
+                          title="BitMask Unified Filter System"
                           label="C++"
-                          collapsedHeight={120}
+                          collapsedHeight={160}
                         />
                       </>
                     ),

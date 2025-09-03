@@ -294,7 +294,7 @@ const CodeCardCollapsible = ({
           <div
             style={{
               width: '100%',
-              maxWidth: '72rem',
+              maxWidth: '108rem',
               height: '80vh',
               borderRadius: '16px',
               backgroundColor: 'white',
