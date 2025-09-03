@@ -32,7 +32,7 @@ const Navbar = () => {
       background: 'rgba(255, 255, 255, 0.95)',
       backdropFilter: 'blur(10px)',
       borderBottom: '1px solid rgba(226, 232, 240, 0.8)',
-      padding: '20px 0',
+      padding: window.innerWidth <= 768 ? '16px 0' : '20px 0',
       position: 'sticky',
       top: 0,
       zIndex: 1000,
@@ -52,7 +52,7 @@ const Navbar = () => {
           }}>
             <h1 style={{ 
               margin: 0, 
-              fontSize: '2rem', 
+              fontSize: window.innerWidth <= 768 ? '1.5rem' : '2rem', 
               fontWeight: '800',
               color: '#1a202c',
               letterSpacing: '-0.025em',
@@ -66,7 +66,7 @@ const Navbar = () => {
           </Link>
           
           {/* Navigation Menu */}
-          <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: window.innerWidth <= 768 ? '12px' : '20px', alignItems: 'center', flexWrap: 'wrap' }}>
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -75,7 +75,7 @@ const Navbar = () => {
                   color: isActive(item.path) ? '#667eea' : '#4a5568',
                   textDecoration: 'none',
                   fontWeight: '600',
-                  fontSize: '1.1rem',
+                  fontSize: window.innerWidth <= 768 ? '0.9rem' : '1.1rem',
                   transition: 'all 0.2s ease',
                   padding: '8px 0',
                   borderBottom: isActive(item.path) ? '3px solid #667eea' : '3px solid transparent',
@@ -93,9 +93,9 @@ const Navbar = () => {
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 border: 'none',
                 color: 'white',
-                fontSize: '1rem',
+                fontSize: window.innerWidth <= 768 ? '0.85rem' : '1rem',
                 cursor: 'pointer',
-                padding: '10px 20px',
+                padding: window.innerWidth <= 768 ? '8px 16px' : '10px 20px',
                 borderRadius: '25px',
                 transition: 'all 0.2s ease',
                 display: 'flex',
