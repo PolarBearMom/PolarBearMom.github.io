@@ -457,7 +457,7 @@ private:
               🚀 {t.technicalHighlights.performance.title}
             </h3>
             <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.5rem', marginBottom: '28px' }}>
-              {t.technicalHighlights.performance.desc}
+                유지보수성과 협업을 최우선으로 삼아 아키텍처를 설계·구현했습니다.
             </p>
             
             {/* 성능 최적화 핵심 요약 */}
@@ -695,7 +695,7 @@ struct FWidgetDetail
                 },
                 {
                   id: "inventory",
-                  title: "🔧 Inventory Interfaces (Observer)",
+                  title: "🔧 인벤토리 인터페이스 (Observer)",
                   badge: "UI 업데이트 호출 -35%",
                   preview: "모델 델리게이트 구독 → ViewModel FieldNotify → UI 자동 동기화",
 
@@ -773,7 +773,7 @@ UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetSelected);`}
 
                       <CodeCardCollapsible
                         code={`// ===== 우선순위 기반 탐색 최적화 =====
-// 1. 아이템 후보 그룹화 (SubType 기준)
+// 1. 아이템 후보 그룹화 (아이템 SubType{무기,귀걸이..} 기준)
 GroupBySubType(InventoryItems);
 
 // 2. 다층 우선순위 정렬 (전투력 → 상태 → 기획 우선순위 → SlotIndex)
@@ -852,11 +852,11 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
                 <h4 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
                   🎮 게임플레이 시스템
                 </h4>
-                <ul style={{ color: '#4a5568', fontSize: '1rem', lineHeight: '1.6' }}>
-                  <li>• <strong>인벤토리 시스템</strong>: 아이템 관리, 분해, 삭제, 임시보관함</li>
-                  <li>• <strong>장착 시스템</strong>: 듀얼 무기, 자동 장착</li>
-                  <li>• <strong>사망 시스템</strong>: 부활 및 상태 복원</li>
-                  <li>• <strong>심연의 탑</strong>: 층별 도전 및 랭킹</li>
+                <ul style={{ color: '#4a5568', fontSize: '1.3rem', lineHeight: '1.6' }}>
+                  <li>• <strong>인벤토리&아이템 시스템</strong>: 아이템 관리, 분해, 삭제, 임시보관함</li>
+                  <li>• <strong>장착 시스템</strong>: 부위별 데이터 관리, 듀얼 무기 스왑, 자동 장착</li>
+                  <li>• <strong>사망 시스템</strong>: 복구/기록/복수/추적 등 사망 관련 통합 관리</li>
+                  <li>• <strong>던전 시스템</strong>: In-Progress-Wait-Out 상태 기반 던전 관리</li>
                 </ul>
             </div>
 
@@ -870,7 +870,7 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
                 <h4 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
                   🏪 컨텐츠 시스템
                 </h4>
-                <ul style={{ color: '#4a5568', fontSize: '1rem', lineHeight: '1.6' }}>
+                <ul style={{ color: '#4a5568', fontSize: '1.3rem', lineHeight: '1.6' }}>
                   <li>• <strong>NPC 상점</strong>: 아이템 거래 시스템</li>
                   <li>• <strong>프리셋 시스템</strong>: 설정 저장/불러오기</li>
                   <li>• <strong>게임 이벤트</strong>: 누적 접속 보상</li>
@@ -888,11 +888,11 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
                 <h4 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
                   🔧 기술 시스템
                 </h4>
-                <ul style={{ color: '#4a5568', fontSize: '1rem', lineHeight: '1.6' }}>
+                <ul style={{ color: '#4a5568', fontSize: '1.3rem', lineHeight: '1.6' }}>
                   <li>• <strong>토스트 팝업</strong>: 사용자 알림 시스템</li>
                   <li>• <strong>치트키 시스템</strong>: 개발/테스트 지원</li>
                   <li>• <strong>재화 관리</strong>: 골드, 다이아 등</li>
-                  <li>• <strong>커뮤니티</strong>: 파티, 채팅 시스템</li>
+                  <li>• <strong>커뮤니티</strong>: 유저간 커뮤니티 관리(파티, 친구, 경계대상 등)</li>
                 </ul>
               </div>
 
