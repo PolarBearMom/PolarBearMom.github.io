@@ -19,6 +19,8 @@ const CodeCardCollapsible = ({
   const checkOverflow = () => {
     const el = wrapRef.current;
     if (!el) return;
+    // 강제 리플로우로 정확한 높이 계산
+    void el.offsetHeight;
     setIsOverflow(el.scrollHeight > el.clientHeight + 2);
   };
 
@@ -142,8 +144,15 @@ const CodeCardCollapsible = ({
             position: 'relative',
             padding: '20px 20px 20px 16px',
             overflow: 'auto',
-            maxHeight: open ? 'none' : `clamp(280px, 40vh, ${collapsedHeight}px)`,
-            ...(open ? {} : { '--clamp': `clamp(280px, 40vh, ${collapsedHeight}px)` })
+            scrollbarWidth: 'thin',
+            scrollbarColor: '#cbd5e1 #f1f5f9',
+            ...(open ? {
+              maxHeight: 'none',
+              height: 'auto'
+            } : {
+              maxHeight: `clamp(280px, 40vh, ${collapsedHeight}px)`,
+              height: 'auto'
+            })
           }}
         >
           {!open && isOverflow && (
@@ -257,7 +266,23 @@ const CodeCardCollapsible = ({
             backgroundColor: '#f8f9fa'
           }}>
                          <button
-               onClick={() => setOpen((v) => !v)}
+               onClick={() => {
+                 const newOpen = !open;
+                 setOpen(newOpen);
+                 
+                 // Collapse할 때 버튼 위치로 빠르게 스크롤
+                 if (!newOpen) {
+                   setTimeout(() => {
+                     const button = document.activeElement;
+                     if (button) {
+                       button.scrollIntoView({ 
+                         behavior: 'auto',
+                         block: 'center' 
+                       });
+                     }
+                   }, 50);
+                 }
+               }}
                style={{
                  fontSize: '12px',
                  padding: '4px 12px',

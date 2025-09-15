@@ -68,7 +68,7 @@ function AccordionItem({ item, open, onToggle }) {
         role="region"
         aria-labelledby={`acc-btn-${id}`}
         className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
-        style={{ maxHeight: `${maxH}px` }}
+        style={{ maxHeight: open ? 'none' : `${maxH}px` }}
       >
         <div ref={innerRef} className="px-5 pt-1 pb-5 text-[15px] leading-7">
           {children}
