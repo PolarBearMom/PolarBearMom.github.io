@@ -41,7 +41,7 @@ function AccordionItem({ item, open, onToggle }) {
         className="w-full flex items-center justify-between px-5 py-3 text-left"
       >
         <div className="flex items-center gap-3">
-          <span className="text-[15px] md:text-[16px] font-semibold">{title}</span>
+          <span className="text-[18px] md:text-[20px] font-semibold">{title}</span>
           {badge && (
             <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50
                              px-2 py-[2px] text-[12px] md:text-[12.5px] text-emerald-700">

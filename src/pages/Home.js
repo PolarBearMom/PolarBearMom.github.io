@@ -189,29 +189,13 @@ const Home = () => {
         color: 'white',
         boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
       }}>
-        <h1 style={{
-          fontSize: '4rem',
-          fontWeight: '800',
-          marginBottom: '20px',
-          textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
-        }}>
+        <h1 className="text-hero-title mb-xs">
           {t.title}
         </h1>
-        <h2 style={{
-          fontSize: '2rem',
-          fontWeight: '600',
-          marginBottom: '30px',
-          opacity: '0.9'
-        }}>
+        <h2 className="text-hero-subtitle mb-xs">
           {t.subtitle}
         </h2>
-        <p style={{
-          fontSize: '1.3rem',
-          lineHeight: '1.8',
-          maxWidth: '800px',
-          margin: '0 auto',
-          opacity: '0.95'
-        }} dangerouslySetInnerHTML={{ __html: t.description }} />
+        <p className="text-hero-body" style={{ maxWidth: '800px', margin: '0 auto' }} dangerouslySetInnerHTML={{ __html: t.description }} />
       </section>
 
       {/* ProjectU Main Card */}
@@ -238,13 +222,13 @@ const Home = () => {
           </div>
 
           <div style={{ padding: '48px' }}>
-            <h3 style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '20px', color: '#1a202c' }}>
+            <h3 className="text-section-subtitle mb-xs">
               🎮 {t.projectU.title}
             </h3>
-            <p style={{ fontSize: '1.3rem', color: '#718096', marginBottom: '28px', fontStyle: 'italic' }}>
+            <p className="text-body mb-xs" style={{ color: '#718096', fontStyle: 'italic' }}>
               {t.projectU.date}
             </p>
-            <p style={{ color: '#4a5568', marginBottom: '40px', lineHeight: '1.8', fontSize: '1.3rem' }}>
+            <p className="text-body mb-md" style={{ color: '#4a5568' }}>
               {t.projectU.desc}
             </p>
             
@@ -256,11 +240,8 @@ const Home = () => {
               marginBottom: '40px',
               border: '1px solid #e2e8f0'
             }}>
-              <h4 style={{ 
-                fontSize: '1.6rem', 
-                fontWeight: '700', 
+              <h4 className="text-subtitle-small mb-xs" style={{ 
                 color: '#2d3748', 
-                marginBottom: '20px',
                 borderLeft: '4px solid #667eea',
                 paddingLeft: '12px'
               }}>
@@ -284,13 +265,13 @@ const Home = () => {
                      marginTop: '2px'
                     }}>{index + 1}</span>
                    <div style={{ flex: 1 }}>
-                     <p style={{ color: '#2d3748', fontSize: '1.2rem', margin: '0 0 8px 0', fontWeight: '600' }}>
+                     <p className="text-description" style={{ color: '#2d3748', margin: '0 0 8px 0', fontWeight: '600' }}>
                         {item.title}
                      </p>
-                     <p style={{ color: '#4a5568', fontSize: '1rem', margin: '0 0 8px 0' }}>
+                     <p className="text-text" style={{ color: '#4a5568', margin: '0 0 8px 0' }}>
                         {item.desc}
                      </p>
-                     <p style={{ color: '#718096', fontSize: '0.9rem', margin: 0, fontStyle: 'italic' }}>
+                     <p className="text-small" style={{ color: '#718096', margin: 0, fontStyle: 'italic' }}>
                         {item.note}
                      </p>
                    </div>
@@ -340,11 +321,7 @@ const Home = () => {
 
       {/* Technical Highlights Section */}
       <section aria-label="Technical Highlights" className="px-4 sm:px-6 lg:px-8" style={{ marginBottom: '80px' }}>
-        <h2 style={{
-          fontSize: '3.5rem',
-          fontWeight: '800',
-          marginBottom: '40px',
-          color: '#1a202c',
+        <h2 className="text-title mb-md" style={{
           textAlign: 'left',
           borderLeft: '8px solid #667eea',
           paddingLeft: '20px',
@@ -365,10 +342,10 @@ const Home = () => {
             boxSizing: 'border-box',
             overflow: 'hidden'
           }}>
-            <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '28px', color: '#1a202c' }}>
+            <h3 className="text-section-subtitle" style={{ marginBottom: '24px' }}>
               🏗️ {t.technicalHighlights.architecture.title}
             </h3>
-            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.5rem', marginBottom: '28px' }}>
+            <p className="text-body" style={{ color: '#4a5568', marginBottom: '28px' }}>
               {t.technicalHighlights.architecture.desc}
             </p>
             {/* PC와 모바일 모두에서 세로 배치 유지 */}
@@ -453,10 +430,10 @@ private:
                 boxSizing: 'border-box',
                 overflow: 'hidden'
           }}>
-            <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '28px', color: '#1a202c' }}>
+            <h3 className="text-section-subtitle" style={{ marginBottom: '24px' }}>
               🚀 {t.technicalHighlights.performance.title}
             </h3>
-            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.5rem', marginBottom: '28px' }}>
+            <p className="text-body" style={{ color: '#4a5568', marginBottom: '28px' }}>
                 유지보수성과 협업을 최우선으로 삼아 아키텍처를 설계·구현했습니다.
             </p>
             
@@ -468,25 +445,25 @@ private:
               border: '1px solid #e5e7eb',
               marginBottom: '24px'
             }}>
-              <h4 style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '24px', color: '#1f2937' }}>
+              <h4 className="text-subtitle-small mb-xs" style={{ color: '#1f2937' }}>
                 📊 성능 최적화 핵심 요약
               </h4>
               <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
                 <div style={{ padding: '20px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
-                  <strong style={{ color: '#0369a1', fontSize: '1.4rem' }}>필터링:</strong> 
-                  <span style={{ color: '#0c4a6e', fontSize: '1.3rem' }}> BitMask 압축 · O(1) 판정 · 조건 통합 관리</span>
+                  <strong className="text-subtitle-xs" style={{ color: '#0369a1' }}>필터링:</strong> 
+                  <span className="text-text" style={{ color: '#0c4a6e' }}> BitMask 압축 · O(1) 판정 · 조건 통합 관리</span>
                 </div>
                 <div style={{ padding: '20px', background: '#fef3c7', borderRadius: '12px', border: '1px solid #fbbf24' }}>
-                  <strong style={{ color: '#92400e', fontSize: '1.4rem' }}>아이콘:</strong> 
-                  <span style={{ color: '#78350f', fontSize: '1.3rem' }}>속성 캐싱 + 슬롯 델타 갱신으로 불필요 재생성 ↓</span>
+                  <strong className="text-subtitle-xs" style={{ color: '#92400e' }}>아이콘:</strong> 
+                  <span className="text-text" style={{ color: '#78350f' }}>속성 캐싱 + 슬롯 델타 갱신으로 불필요 재생성 ↓</span>
                 </div>
                 <div style={{ padding: '20px', background: '#ecfdf5', borderRadius: '12px', border: '1px solid #34d399' }}>
-                  <strong style={{ color: '#065f46', fontSize: '1.4rem' }}>인벤토리:</strong> 
-                  <span style={{ color: '#064e3b', fontSize: '1.3rem' }}>Observer + FieldNotify로 이벤트 기반 UI 동기화</span>
+                  <strong className="text-subtitle-xs" style={{ color: '#065f46' }}>인벤토리:</strong> 
+                  <span className="text-text" style={{ color: '#064e3b' }}>Observer + FieldNotify로 이벤트 기반 UI 동기화</span>
                 </div>
                 <div style={{ padding: '20px', background: '#f3e8ff', borderRadius: '12px', border: '1px solid #a78bfa' }}>
-                  <strong style={{ color: '#6b21a8', fontSize: '1.4rem' }}>탐색:</strong> 
-                  <span style={{ color: '#581c87', fontSize: '1.3rem' }}>그룹화 + 다층 정렬로 O(N) → O(N log N) 최적화</span>
+                  <strong className="text-subtitle-xs" style={{ color: '#6b21a8' }}>탐색:</strong> 
+                  <span className="text-text" style={{ color: '#581c87' }}>그룹화 + 다층 정렬로 O(N) → O(N log N) 최적화</span>
                 </div>
               </div>
             </div>
@@ -502,17 +479,17 @@ private:
 
                                       children: (
                       <>
-                        <p style={{ color: '#4b5563', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
+                        <p className="text-text" style={{ color: '#4b5563', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
                           "하나의 int32를 0~15bit(등록), 16~31bit(제외)로 분할하여 복잡한 필터링을 단순한 비트 연산으로 해결"
                         </p>
-                        <ul style={{ color: '#374151', fontSize: '1.2rem', lineHeight: '1.7', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
+                        <ul className="text-text" style={{ color: '#374151', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
                           <li style={{ marginBottom: '8px' }}><strong>비트 영역 분할:</strong> 등록 조건(0~15bit)과 제외 조건(16~31bit)을 하나의 정수로 통합</li>
                           <li style={{ marginBottom: '8px' }}><strong>O(1) 필터링:</strong> 비트 연산으로 복잡한 if-else 로직을 단순화</li>
                           <li style={{ marginBottom: '8px' }}><strong>확장 가능한 설계:</strong> 새로운 필터 조건 추가 시 비트만 할당</li>
                         </ul>
-                        <div style={{ marginBottom: '16px', padding: '12px', background: '#f0f9ff', borderRadius: '8px', fontSize: '1.1rem', color: '#0c4a6e', border: '1px solid #bae6fd' }}>
+                        <div className="text-text" style={{ marginBottom: '16px', padding: '12px', background: '#f0f9ff', borderRadius: '8px', color: '#0c4a6e', border: '1px solid #bae6fd' }}>
                           하나의 정수로 반대되는 두 개념(등록/제외)을 논리적으로 분리하여 관리하는 혁신적 아키텍처
-            </div>
+                        </div>
                         <CodeCardCollapsible
                           code={`// 비트 영역 분할로 등록/제외 조건 통합
 UENUM()
@@ -560,45 +537,45 @@ bool IsItemVisible(const FItemData& Item, EFilterMask VisibleMask, EFilterMask A
 
                                       children: (
                       <>
-                        <p style={{ color: '#4b5563', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
+                        <p className="text-text" style={{ color: '#4b5563', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
                           "슬롯 시스템을 통합 베이스 아키텍처(UBaseSlot)로 설계해, UI 컴포넌트 자동 등록과 델타 업데이트를 적용했습니다. 그 결과 슬롯 UI 호출 횟수를 ~40% 줄였고, 신규 속성 추가도 Enum 정의만으로 확장 가능하게 하여 유지보수 비용을 크게 절감했습니다."
                         </p>
                         
                         {/* 🔎 문제 (Before) */}
                         <div style={{ marginBottom: '20px', padding: '16px', background: '#fef2f2', borderRadius: '12px', border: '1px solid #fecaca' }}>
-                          <h6 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '12px', color: '#dc2626' }}>
+                          <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#dc2626' }}>
                             🔎 문제 (Before)
                           </h6>
-                          <ul style={{ color: '#991b1b', fontSize: '1.1rem', lineHeight: '1.6', margin: 0, paddingLeft: '20px' }}>
+                          <ul className="text-text" style={{ color: '#991b1b', margin: 0, paddingLeft: '20px' }}>
                             <li style={{ marginBottom: '6px' }}>• 아이콘/슬롯이 각각 따로 구현돼 중복 코드와 관리 비용 증가</li>
                             <li style={{ marginBottom: '6px' }}>• 새로운 속성(예: 쿨타임, 강화 등) 추가 시 모든 슬롯 클래스 수정 필요</li>
                             <li style={{ marginBottom: '6px' }}>• UI 전체를 매번 재빌드 → 프레임 드랍, 메모리 낭비 발생</li>
                           </ul>
-          </div>
+                        </div>
           
                         {/* 🚀 해결 (System 설계) */}
                         <div style={{ marginBottom: '20px', padding: '16px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
-                          <h6 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '12px', color: '#0369a1' }}>
+                          <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#0369a1' }}>
                             🚀 해결 (System 설계)
                           </h6>
-                          <ul style={{ color: '#0c4a6e', fontSize: '1.1rem', lineHeight: '1.6', margin: 0, paddingLeft: '20px' }}>
-                            <li style={{ marginBottom: '6px' }}>• <strong>통합 베이스 클래스</strong>로 아이콘 UI/동작을 일원화</li>
-                            <li style={{ marginBottom: '6px' }}>• <strong>자동 위젯 등록</strong> → Enum만 추가하면 확장</li>
-                            <li style={{ marginBottom: '6px' }}>• <strong>델타 업데이트</strong> → 변경된 슬롯만 갱신</li>
-                            <li style={{ marginBottom: '6px' }}>• <strong>공통 인터랙션 제공</strong> → 클릭·롱프레스 이벤트를 부모에서 제공, 자식은 재사용만</li>
+                          <ul className="text-text" style={{ color: '#0c4a6e', margin: 0, paddingLeft: '20px' }}>
+                            <li style={{ marginBottom: '6px' }}>• 통합 베이스 클래스로 아이콘 UI/동작을 일원화</li>
+                            <li style={{ marginBottom: '6px' }}>• 자동 위젯 등록 → Enum만 추가하면 확장</li>
+                            <li style={{ marginBottom: '6px' }}>• 델타 업데이트 → 변경된 슬롯만 갱신</li>
+                            <li style={{ marginBottom: '6px' }}>• 공통 인터랙션 제공 → 클릭·롱프레스 이벤트를 부모에서 제공, 자식은 재사용만</li>
                           </ul>
                         </div>
 
                         {/* 🎯 성과 (After) */}
-                        <div style={{ marginBottom: '20px', padding: '16px', background: '#ecfdf5', borderRadius: '12px', border: '1px solid #34d399' }}>
-                          <h6 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '12px', color: '#065f46' }}>
+                        <div style={{ marginBottom: '20px', padding: '16px', background: '#f0fdf4', borderRadius: '12px', border: '1px solid #bbf7d0' }}>
+                          <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#16a34a' }}>
                             🎯 성과 (After)
                           </h6>
-                          <ul style={{ color: '#064e3b', fontSize: '1.1rem', lineHeight: '1.6', margin: 0, paddingLeft: '20px' }}>
-                            <li style={{ marginBottom: '6px' }}>• <strong>코드 중복 제거</strong> → 슬롯 관련 코드 ↓ 대폭 감소</li>
-                            <li style={{ marginBottom: '6px' }}>• <strong>확장성 확보</strong> → 신규 속성 추가 시 Enum 정의만으로 즉시 반영</li>
-                            <li style={{ marginBottom: '6px' }}>• <strong>렌더링 비용 절감</strong> → 전체 재빌드 제거, 슬롯 UI 호출 횟수 ↓ 대폭 감소</li>
-                            <li style={{ marginBottom: '6px' }}>• <strong>유지보수 용이성</strong> → 모든 슬롯이 UBaseSlot 하나만 상속받으므로 수정 범위 ↓ 최소화</li>
+                          <ul className="text-text" style={{ color: '#15803d', margin: 0, paddingLeft: '20px' }}>
+                            <li style={{ marginBottom: '6px' }}>• 코드 중복 제거 → 슬롯 관련 코드 ↓ 대폭 감소</li>
+                            <li style={{ marginBottom: '6px' }}>• 확장성 확보 → 신규 속성 추가 시 Enum 정의만으로 즉시 반영</li>
+                            <li style={{ marginBottom: '6px' }}>• 렌더링 비용 절감 → 전체 재빌드 제거, 슬롯 UI 호출 횟수 ↓ 대폭 감소</li>
+                            <li style={{ marginBottom: '6px' }}>• 유지보수 용이성 → 모든 슬롯이 UBaseSlot 하나만 상속받으므로 수정 범위 ↓ 최소화</li>
                           </ul>
                         </div>
                         <CodeCardCollapsible
@@ -701,15 +678,15 @@ struct FWidgetDetail
 
                                       children: (
                       <>
-                        <p style={{ color: '#4b5563', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
+                        <p className="text-text" style={{ color: '#4b5563', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
                           "모델 델리게이트 구독 → ViewModel FieldNotify → UI 자동 동기화"
                         </p>
-                        <ul style={{ color: '#374151', fontSize: '1.2rem', lineHeight: '1.7', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
+                        <ul className="text-text" style={{ color: '#374151', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
                           <li style={{ marginBottom: '8px' }}><strong>인터페이스로 액션(선택/해제/활성)을 추상화</strong></li>
                           <li style={{ marginBottom: '8px' }}><strong>Observer로 변경 이벤트만 전달</strong></li>
                           <li style={{ marginBottom: '8px' }}><strong>Command-style 델리게이트로 입력 일원화</strong></li>
                         </ul>
-                        <div style={{ marginBottom: '16px', padding: '12px', background: '#ecfdf5', borderRadius: '8px', fontSize: '1.1rem', color: '#064e3b', border: '1px solid #34d399' }}>
+                        <div className="text-text" style={{ marginBottom: '16px', padding: '12px', background: '#f0fdf4', borderRadius: '8px', color: '#16a34a', border: '1px solid #bbf7d0' }}>
                           느슨한 결합으로 확장성↑, 코드 재사용성↑, 유지보수성 향상
                         </div>
                         <CodeCardCollapsible
@@ -737,37 +714,37 @@ UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetSelected);`}
                       </p>
 
                       {/* 🔎 문제 (Before) */}
-                      <div style={{ marginBottom: '20px', padding: '16px', background: '#fef2f2', borderRadius: '12px', border: '1px solid #fca5a5' }}>
-                        <h6 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '12px', color: '#991b1b' }}>
+                      <div style={{ marginBottom: '20px', padding: '16px', background: '#fef2f2', borderRadius: '12px', border: '1px solid #fecaca' }}>
+                        <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#dc2626' }}>
                           🔎 문제 (Before)
                         </h6>
-                        <ul style={{ color: '#7f1d1d', fontSize: '1.1rem', lineHeight: '1.6', margin: 0, paddingLeft: '20px' }}>
-                          <li style={{ marginBottom: '6px' }}>• <strong>아이템 장착 시 모든 인벤토리를 반복 탐색</strong></li>
-                          <li style={{ marginBottom: '6px' }}>• <strong>상황별로 다른 우선순위 규칙을 위해 별도 비교 함수들 중복 구현</strong></li>
+                        <ul className="text-text" style={{ color: '#991b1b', margin: 0, paddingLeft: '20px' }}>
+                          <li style={{ marginBottom: '6px' }}>• 아이템 장착 시 모든 인벤토리를 반복 탐색</li>
+                          <li style={{ marginBottom: '6px' }}>• 상황별로 다른 우선순위 규칙을 위해 별도 비교 함수들 중복 구현</li>
                         </ul>
                       </div>
 
                       {/* 🚀 해결 (System 설계) */}
-                      <div style={{ marginBottom: '20px', padding: '16px', background: '#eff6ff', borderRadius: '12px', border: '1px solid #93c5fd' }}>
-                        <h6 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '12px', color: '#1e40af' }}>
+                      <div style={{ marginBottom: '20px', padding: '16px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
+                        <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#0369a1' }}>
                           🚀 해결 (System 설계)
                         </h6>
-                        <ul style={{ color: '#1e3a8a', fontSize: '1.1rem', lineHeight: '1.6', margin: 0, paddingLeft: '20px' }}>
-                          <li style={{ marginBottom: '6px' }}>• <strong>아이템 SubType 기준으로 그룹화 후 탐색 범위 축소</strong></li>
-                          <li style={{ marginBottom: '6px' }}>• <strong>전투력 1차 비교 후, 람다로 상황별 동적 우선순위 적용</strong></li>
-                          <li style={{ marginBottom: '6px' }}>• <strong>하나의 ComparePriority 함수로 모든 상황 처리 (일반 장착, 듀얼 웨폰 등)</strong></li>
+                        <ul className="text-text" style={{ color: '#0c4a6e', margin: 0, paddingLeft: '20px' }}>
+                          <li style={{ marginBottom: '6px' }}>• 아이템 SubType 기준으로 그룹화 후 탐색 범위 축소</li>
+                          <li style={{ marginBottom: '6px' }}>• 전투력 1차 비교 후, 람다로 상황별 동적 우선순위 적용</li>
+                          <li style={{ marginBottom: '6px' }}>• 하나의 ComparePriority 함수로 모든 상황 처리 (일반 장착, 듀얼 웨폰 등)</li>
                         </ul>
                       </div>
 
                       {/* 🎯 성과 (After) */}
-                      <div style={{ marginBottom: '20px', padding: '16px', background: '#ecfdf5', borderRadius: '12px', border: '1px solid #34d399' }}>
-                        <h6 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '12px', color: '#065f46' }}>
+                      <div style={{ marginBottom: '20px', padding: '16px', background: '#f0fdf4', borderRadius: '12px', border: '1px solid #bbf7d0' }}>
+                        <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#16a34a' }}>
                           🎯 성과 (After)
                         </h6>
-                        <ul style={{ color: '#064e3b', fontSize: '1.1rem', lineHeight: '1.6', margin: 0, paddingLeft: '20px' }}>
-                          <li style={{ marginBottom: '6px' }}>• <strong>탐색 비용 O(N) → O(N log N) 정렬 + 단일 탐색으로 최적화</strong></li>
-                          <li style={{ marginBottom: '6px' }}>• <strong>코드 중복 제거 → 하나의 함수로 모든 우선순위 규칙 처리</strong></li>
-                          <li style={{ marginBottom: '6px' }}>• <strong>확장성 확보 → 새로운 우선순위 규칙을 람다로 쉽게 추가</strong></li>
+                        <ul className="text-text" style={{ color: '#15803d', margin: 0, paddingLeft: '20px' }}>
+                          <li style={{ marginBottom: '6px' }}>• 탐색 비용 O(N) → O(N log N) 정렬 + 단일 탐색으로 최적화</li>
+                          <li style={{ marginBottom: '6px' }}>• 코드 중복 제거 → 하나의 함수로 모든 우선순위 규칙 처리</li>
+                          <li style={{ marginBottom: '6px' }}>• 확장성 확보 → 새로운 우선순위 규칙을 람다로 쉽게 추가</li>
                         </ul>
                       </div>
 
@@ -835,7 +812,7 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
             <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '28px', color: '#1a202c' }}>
               ⚙️ {t.technicalHighlights.systems.title}
             </h3>
-            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.5rem', marginBottom: '28px' }}>
+            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.8rem', marginBottom: '28px' }}>
               {t.technicalHighlights.systems.desc}
             </p>
             

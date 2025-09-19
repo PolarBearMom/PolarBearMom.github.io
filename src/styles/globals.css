@@ -1,0 +1,158 @@
+/* ===== CSS Variables for Font Sizes (Viewport Scaling) ===== */
+:root {
+  /* 12가지 글자 크기 타입 - 크기 순으로 정렬 */
+  --font-size-title: clamp(3.5rem, 8.5vw, 5.5rem);
+  --font-size-subtitle: clamp(2.5rem, 6.5vw, 4rem);
+  --font-size-section-title: clamp(2rem, 5vw, 3rem);
+  --font-size-section-subtitle: clamp(1.8rem, 4.5vw, 2.5rem);
+  --font-size-card-title: clamp(1.5rem, 3.8vw, 2.2rem);
+  --font-size-subtitle-small: clamp(1.4rem, 3.5vw, 2rem);
+  --font-size-subtitle-xs: clamp(1.2rem, 3vw, 1.8rem);
+  --font-size-body: clamp(1.3rem, 3.2vw, 1.8rem);
+  --font-size-body-large: clamp(1.4rem, 3.5vw, 2rem);
+  --font-size-description: clamp(1.1rem, 2.7vw, 1.6rem);
+  --font-size-text: clamp(1rem, 2.4vw, 1.4rem);
+  --font-size-small: clamp(0.9rem, 2.2vw, 1.3rem);
+
+  /* Hero 섹션 전용 클래스 */
+  --font-size-hero-title: clamp(3.5rem, 8.5vw, 5.5rem);
+  --font-size-hero-subtitle: clamp(2.5rem, 6.5vw, 4rem);
+  --font-size-hero-body: clamp(1.3rem, 3.2vw, 1.8rem);
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Letter Spacing */
+  --letter-spacing-normal: -0.025em;
+  --letter-spacing-tight: -0.05em;
+
+  /* Colors */
+  --color-primary-start: #667eea;
+  --color-primary-end: #764ba2;
+  --color-text-primary: #1a202c;
+  --color-text-secondary: #4a5568;
+  --color-text-tertiary: #718096;
+  --color-white: #ffffff;
+  --color-background: #f7fafc;
+}
+
+/* ===== Font Size Classes ===== */
+.text-title {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+}
+
+.text-subtitle {
+  font-size: var(--font-size-subtitle);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+}
+
+.text-section-title {
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+}
+
+.text-section-subtitle {
+  font-size: var(--font-size-section-subtitle);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+}
+
+.text-card-title {
+  font-size: var(--font-size-card-title);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text-primary);
+}
+
+.text-subtitle-small {
+  font-size: var(--font-size-subtitle-small);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text-primary);
+}
+
+.text-subtitle-xs {
+  font-size: var(--font-size-subtitle-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text-primary);
+}
+
+.text-body {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text-secondary);
+}
+
+.text-body-large {
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text-secondary);
+}
+
+.text-description {
+  font-size: var(--font-size-description);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text-secondary);
+}
+
+.text-text {
+  font-size: var(--font-size-text);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text-secondary);
+}
+
+.text-small {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text-tertiary);
+}
+
+/* ===== Hero Section Classes ===== */
+.text-hero-title {
+  font-size: var(--font-size-hero-title);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.text-hero-subtitle {
+  font-size: var(--font-size-hero-subtitle);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+}
+
+.text-hero-body {
+  font-size: var(--font-size-hero-body);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-white);
+  opacity: 0.95;
+}
+
+/* ===== Margin Classes ===== */
+.mb-xs { margin-bottom: 0.5rem; }
+.mb-sm { margin-bottom: 1rem; }
+.mb-md { margin-bottom: 1.5rem; }
+.mb-lg { margin-bottom: 2rem; }
+.mb-xl { margin-bottom: 3rem; }
+
+.mb-xxs { margin-bottom: 0.25rem; }
