@@ -62,6 +62,54 @@ const Home = () => {
           }
         ]
       },
+      bitMaskDetails: {
+        bitDivision: "Bit Area Division: Integrating registration conditions (0~15bit) and exclusion conditions (16~31bit) into a single integer",
+        o1Filtering: "O(1) Filtering: Simplifying complex if-else logic with bit operations",
+        scalableDesign: "Scalable Design: Only need to allocate bits when adding new filter conditions",
+        innovativeArchitecture: "Innovative architecture that logically separates and manages two opposing concepts (registration/exclusion) with a single integer",
+        quote: "Dividing a single int32 into 0~15bit (registration) and 16~31bit (exclusion) to solve complex filtering with simple bit operations"
+      },
+      performanceOptimization: {
+        summaryTitle: "Performance Optimization Core Summary",
+        filtering: {
+          title: "Filtering:",
+          desc: "BitMask compression · O(1) judgment · unified condition management"
+        },
+        icon: {
+          title: "Icon:",
+          desc: "Property caching + slot delta updates to reduce unnecessary regeneration ↓"
+        },
+        inventory: {
+          title: "Inventory:",
+          desc: "Event-based UI synchronization with Observer + FieldNotify"
+        },
+        search: {
+          title: "Search:",
+          desc: "Grouping + multi-layer sorting for O(N) → O(N log N) optimization"
+        }
+      },
+      accordionItems: {
+        bitmask: {
+          title: "🔍 BitMask-based O(1) Filtering System",
+          badge: "Bit-unit compression management",
+          preview: "A filtering system that integrates and manages registration/exclusion conditions by dividing a single integer into bit areas"
+        },
+        unifiedSlot: {
+          title: "💡 Unified Slot Base System",
+          badge: "Code duplication ↓",
+          preview: "A system designed with a unified base architecture (UBaseSlot) for slot systems, applying automatic UI component registration and delta updates"
+        },
+        inventoryObserver: {
+          title: "📝 Inventory Interface (Observer)",
+          badge: "UI update calls -35%",
+          preview: "Model delegate subscription → ViewModel FieldNotify → UI automatic synchronization"
+        },
+        prioritySearch: {
+          title: "⚡ Priority-Based Search Optimization (Auto-Equip)",
+          badge: "Search cost O(N) → O(N log N)",
+          preview: "Instead of iterating through the entire inventory every time, search costs were significantly reduced by grouping items and selecting only optimal slots through lambda-based dynamic priority sorting."
+        }
+      },
       codeComments: {
         model: "// Model: Party data and server communication",
         viewModel: "// ViewModel: UI and Model connection, automatic updates with FieldNotify",
@@ -71,7 +119,146 @@ const Home = () => {
         updateMember: "// Called when updating party member info from server",
         onPartyChanged: "// Called when party member status changes (from global Model)",
         fieldNotify: "// UI auto-refresh with FieldNotify",
-        etc: "etc..."
+        etc: "etc...",
+        bitmask: {
+          enumDefinition: "// BitMask Unified Filter System - Registration conditions (0~15bit) and exclusion conditions (16~31bit)",
+          registrationConditions: "// Registration conditions (0~15 bit)",
+          exclusionConditions: "// Exclusion conditions (16~31 bit)",
+          gradeNormal: "Grade_Normal = 1 << 0,    // Normal grade items",
+          gradeGoodly: "Grade_Goodly = 1 << 1,   // Good grade items",
+          gradeRare: "Grade_Rare = 1 << 2,      // Rare grade items",
+          gradeEpic: "Grade_Epic = 1 << 3,      // Epic grade items",
+          gradeLegendary: "Grade_Legendary = 1 << 4, // Legendary grade items",
+          pvpMode: "PvP_Mode = 1 << 16,         // PvP mode exclusion",
+          tradeDisabled: "Trade_Disabled = 1 << 17, // Trade disabled exclusion",
+          usage: "// Usage example",
+          filterExample: "int32_t filter = Grade_Goodly | Grade_Rare; // Registration: Good and Rare grades",
+          exclusionExample: "int32_t exclusion = PvP_Mode; // Exclusion: PvP mode",
+          resultExample: "bool result = (filter & target) && !(exclusion & target); // O(1) filtering result",
+          visibleMaskComment: "// VisibleMask: Filter mask applied to all content",
+          activeMaskComment: "// ActiveMask: Filter mask for active content state",
+          excludeCheckComment: "// Check exclusion conditions first (16~31 bit)",
+          registrationCheckComment: "// Check registration conditions (0~15 bit)"
+        },
+        unifiedSlot: {
+          baseClass: "// Unified Slot Base System - Automatic UI registration and delta updates",
+          nativeConstruct: "// Automatic UI registration",
+          updateSlotDelta: "// Delta update - only update changed slots",
+          registerComponents: "// Automatic UI component registration",
+          bindEvents: "// Event binding",
+          refreshUI: "// UI refresh - only update changed parts",
+          inventorySlot: "// Inventory slot implementation - inherits all UBaseSlot functionality",
+          widgetTypeAccess: "// O(1) access by widget type",
+          enumExtension: "// Extend only Enum when adding new widget types",
+          inheritanceStructure: "// Inheritance structure",
+          itemSpecific: "// Item-specific function",
+          skillSpecific: "// Skill-specific function",
+          buffSpecific: "// Buff-specific function",
+          iconConfigData: "// ===== Icon configuration data =====",
+          coreDataStructure: "// Core data structure (basis for automatic UI processing)",
+          usagePurpose: "// Purpose of use such as item/skill/buff",
+          uniqueId: "// Unique ID (ItemId, SkillId, ClassId, etc.)",
+          widgetAttributeList: "// Widget attribute list: Type + Action + Value combination",
+          constructor: "// Constructor: Initialize basic attributes with Scope + UniqueID",
+          autoGenerate: "// Automatically generate basic attributes according to Scope",
+          systemDescription: "Designed slot system with unified base architecture (UBaseSlot), applying automatic UI component registration and delta updates. As a result, slot UI call count was reduced by ~40%, and new attribute additions became extensible with just Enum definitions, significantly reducing maintenance costs.",
+          problemTitle: "🔎 Problem (Before)",
+          problem1: "• Icons/slots implemented separately, increasing code duplication and management costs",
+          problem2: "• Adding new attributes (e.g., cooldown, enhancement) requires modifying all slot classes",
+          problem3: "• UI rebuilt entirely every time → frame drops, memory waste",
+          solutionTitle: "🚀 Solution (System Design)",
+          solution1: "• Unified base class to centralize icon UI/behavior",
+          solution2: "• Automatic widget registration → just add Enum to extend",
+          solution3: "• Delta update → only update changed slots",
+          solution4: "• Common interaction provision → parent provides click·longpress events, children just reuse",
+          resultTitle: "🎯 Results (After)",
+          result1: "• Code duplication removed → slot-related code ↓ significantly reduced",
+          result2: "• Extensibility secured → new attributes reflected immediately with just Enum definitions",
+          result3: "• Rendering cost reduced → eliminated full rebuild, slot UI call count ↓ significantly reduced",
+          result4: "• Maintainability improved → all slots inherit from single UBaseSlot, minimizing modification scope",
+          otherScopeHandling: "// ... Other Scope handling",
+          widgetTypeDefinition: "// Widget type definition",
+          widgetTypeEnum: "Icon, Grade, Count, CoolTime, Equip, Lock, Reinforce, ToolTip",
+          extensible: "// ... Extensible",
+          widgetAttributeUnit: "// Widget attribute unit",
+          widgetType: "// Which widget",
+          widgetAction: "// Which action to perform (Visibility, ResourcePath, CoolTime, etc.)",
+          numericValue: "// Numeric value (e.g., enhancement level, item count, grade value, remaining cooldown time, etc.)"
+        },
+        coreSystems: {
+          gameplayTitle: "🎮 Gameplay Systems",
+          gameplay1: "• <strong>Inventory & Item System</strong>: item management, decomposition, deletion, temporary storage",
+          gameplay2: "• <strong>Equipment System</strong>: part-specific data management, dual weapon swap, auto-equip",
+          gameplay3: "• <strong>Death System</strong>: integrated management of recovery/record/revenge/tracking related to death",
+          gameplay4: "• <strong>Dungeon System</strong>: In-Progress-Wait-Out state-based dungeon management",
+          contentTitle: "🏪 Content Systems",
+          content1: "• <strong>NPC Shop</strong>: item trading system",
+          content2: "• <strong>Preset System</strong>: save/load settings",
+          content3: "• <strong>Game Events</strong>: cumulative login rewards",
+          content4: "• <strong>Appearance System</strong>: character customization",
+          techTitle: "🔧 Technical Systems",
+          tech1: "• <strong>Toast Popup</strong>: user notification system",
+          tech2: "• <strong>Cheat System</strong>: development/test support",
+          tech3: "• <strong>Currency Management</strong>: gold, diamonds, etc.",
+          tech4: "• <strong>Community</strong>: user community management (party, friends, blocked users, etc.)",
+          detailTitle: "📊 Implementation Details",
+          detail1Label: "Total Systems:",
+          detail1Value: "13 major systems",
+          detail2Label: "Total Files:",
+          detail2Value: "80+ .h/.cpp files",
+          detail3Label: "Architecture:",
+          detail3Value: "MVVM pattern",
+          detail4Label: "Network:",
+          detail4Value: "CMSG/CUP based"
+        },
+        inventoryObserver: {
+          modelClass: "// Inventory Observer Pattern - Model with automatic UI updates",
+          delegateDeclaration: "// Delegate declaration for inventory changes",
+          updateInventory: "// Inventory data update - automatically notifies UI",
+          viewModelClass: "// ViewModel subscribing to Observer",
+          beginPlay: "// Subscribe to model delegate",
+          handleUpdate: "// Automatic UI update with FieldNotify",
+          interfaceAbstract: "Abstract actions (select/deselect/activate) through interfaces",
+          observerEvent: "Observer delivers only change events",
+          commandDelegate: "Unify input with Command-style delegates",
+          looseCoupling: "Loose coupling improves extensibility↑, code reusability↑, maintainability",
+          modelDelegateFlow: "Model delegate subscription → ViewModel FieldNotify → UI automatic synchronization"
+        },
+        prioritySearch: {
+          optimizerClass: "// Priority-Based Search Optimization - Grouped item search",
+          findOptimalSlots: "// Grouped item search",
+          groupItems: "// 1. Group items by type",
+          priorityFunction: "// 2. Lambda-based dynamic priority sorting",
+          multiLayerSort: "// 3. Apply multi-layer sorting",
+          selectTopSlots: "// 4. Select only optimal slots (O(N log N))",
+          groupByType: "// Group items by type",
+          calculatePriority: "// Dynamic priority calculation",
+          itemRarity: "// Item rarity priority",
+          playerLevel: "// Player level compatibility",
+          itemCondition: "// Item condition (durability, enhancement, etc.)",
+          coreOptimizationPoint: "// ===== Core Optimization Point =====",
+          beforeOptimization: "// Before: O(N) - All inventory traversal",
+          afterOptimization: "// After: O(N log N) - Grouping + Sorting + Single Search",
+          lambdaPriority: "// Core: Lambda-based dynamic priority application",
+          powerComparison: "// 1st: Power comparison",
+          situationalPriority: "// 2nd: If power is equal, apply situational priority with lambda",
+          situationalLambda: "// Situational lambda priority functions",
+          generalEquipPriority: "// Case 1: General equip priority (Equip status → UI_Order → Inventory order)",
+          slotIndexPriority: "// Case 2: Slot index priority (Dual weapons, etc.)",
+          highIndexPriority: "// Higher index priority",
+          problemTitle: "🔎 Problem (Before)",
+          problem1: "• Repeatedly searching the entire inventory when equipping an item",
+          problem2: "• Redundant implementation of separate comparison functions for different priority rules depending on the situation",
+          solutionTitle: "🚀 Solution (System Design)",
+          solution1: "• Reduced search scope after grouping by item SubType",
+          solution2: "• After primary comparison of combat power, applied dynamic priority by situation using lambda",
+          solution3: "• Handled all situations with a single ComparePriority function (e.g., general equip, dual weapon)",
+          resultTitle: "✅ Results (After)",
+          result1: "• Search cost optimized from O(N) to O(N log N) sorting + single search",
+          result2: "• Code duplication removed → all priority rules handled by a single function",
+          result3: "• Ensured extensibility → easily add new priority rules with lambda",
+          description: "Instead of iterating through the entire inventory every time, search costs were significantly reduced by grouping items and selecting only optimal slots through lambda-based dynamic priority sorting."
+        }
       },
       sections: {
         experience: "Experience",
@@ -142,6 +329,54 @@ const Home = () => {
           }
         ]
       },
+      performanceOptimization: {
+        summaryTitle: "📊 성능 최적화 핵심 요약",
+        filtering: {
+          title: "필터링:",
+          desc: "BitMask 압축 · O(1) 판정 · 조건 통합 관리"
+        },
+        icon: {
+          title: "아이콘:",
+          desc: "속성 캐싱 + 슬롯 델타 갱신으로 불필요 재생성 ↓"
+        },
+        inventory: {
+          title: "인벤토리:",
+          desc: "Observer + FieldNotify로 이벤트 기반 UI 동기화"
+        },
+        search: {
+          title: "탐색:",
+          desc: "그룹화 + 다층 정렬로 O(N) → O(N log N) 최적화"
+        }
+      },
+      accordionItems: {
+        bitmask: {
+          title: "🔍 BitMask 기반 O(1) 필터링 시스템",
+          badge: "비트 단위 압축 관리",
+          preview: "하나의 정수를 비트 영역 분할하여 등록/제외 조건을 통합 관리하는 필터링 시스템"
+        },
+        unifiedSlot: {
+          title: "💡 통합 슬롯 베이스 시스템 (Unified Slot Base System)",
+          badge: "코드 중복 ↓",
+          preview: "슬롯 시스템을 통합 베이스 아키텍처(UBaseSlot)로 설계해, UI 컴포넌트 자동 등록과 델타 업데이트를 적용한 시스템"
+        },
+        inventoryObserver: {
+          title: "📝 인벤토리 인터페이스 (Observer)",
+          badge: "UI 업데이트 호출 -35%",
+          preview: "모델 델리게이트 구독 → ViewModel FieldNotify → UI 자동 동기화"
+        },
+        prioritySearch: {
+          title: "⚡ 우선순위 기반 탐색 최적화 (자동 장착)",
+          badge: "탐색 비용 O(N) → O(N log N)",
+          preview: "인벤토리 전체를 매번 순회하는 대신, 아이템을 그룹화하고 람다 기반 동적 우선순위 정렬로 최적 슬롯만 선택하는 방식으로 탐색 비용을 크게 줄였습니다."
+        }
+      },
+      bitMaskDetails: {
+        bitDivision: "비트 영역 분할: 등록 조건(0~15bit)과 제외 조건(16~31bit)을 하나의 정수로 통합",
+        o1Filtering: "O(1) 필터링: 비트 연산으로 복잡한 if-else 로직을 단순화",
+        scalableDesign: "확장 가능한 설계: 새로운 필터 조건 추가 시 비트만 할당",
+        innovativeArchitecture: "하나의 정수로 반대되는 두 개념(등록/제외)을 논리적으로 분리하여 관리하는 혁신적 아키텍처",
+        quote: "하나의 int32를 0~15bit(등록), 16~31bit(제외)로 분할하여 복잡한 필터링을 단순한 비트 연산으로 해결"
+      },
       sections: {
         experience: "경력",
         projects: "프로젝트",
@@ -166,7 +401,146 @@ const Home = () => {
         updateMember: "// 서버에서 파티원 정보 업데이트 시 호출",
         onPartyChanged: "// 파티원 상태 변경 시 호출 (글로벌 Model에서)",
         fieldNotify: "// FieldNotify로 UI 자동 갱신",
-        etc: "etc..."
+        etc: "etc...",
+        bitmask: {
+          enumDefinition: "// BitMask 통합 필터 시스템 - 등록 조건(0~15bit)과 제외 조건(16~31bit)",
+          registrationConditions: "// 등록 조건 (0~15 bit)",
+          exclusionConditions: "// 제외 조건 (16~31 bit)",
+          gradeNormal: "Grade_Normal = 1 << 0,    // 일반 등급 아이템",
+          gradeGoodly: "Grade_Goodly = 1 << 1,   // 좋은 등급 아이템",
+          gradeRare: "Grade_Rare = 1 << 2,      // 레어 등급 아이템",
+          gradeEpic: "Grade_Epic = 1 << 3,      // 에픽 등급 아이템",
+          gradeLegendary: "Grade_Legendary = 1 << 4, // 전설 등급 아이템",
+          pvpMode: "PvP_Mode = 1 << 16,         // PvP 모드 제외",
+          tradeDisabled: "Trade_Disabled = 1 << 17, // 거래 불가 제외",
+          usage: "// 사용 예시",
+          filterExample: "int32_t filter = Grade_Goodly | Grade_Rare; // 등록: 좋은 등급과 레어 등급",
+          exclusionExample: "int32_t exclusion = PvP_Mode; // 제외: PvP 모드",
+          resultExample: "bool result = (filter & target) && !(exclusion & target); // O(1) 필터링 결과",
+          visibleMaskComment: "// VisibleMask: 각 컨텐츠 전체 적용 대상 필터 마스크",
+          activeMaskComment: "// ActiveMask: 컨텐츠 활성화 상태의 필터 마스크",
+          excludeCheckComment: "// 제외 조건 먼저 체크 (16~31 bit)",
+          registrationCheckComment: "// 등록 조건 체크 (0~15 bit)"
+        },
+        unifiedSlot: {
+          baseClass: "// 통합 슬롯 베이스 시스템 - 자동 UI 등록과 델타 업데이트",
+          nativeConstruct: "// 자동 UI 등록",
+          updateSlotDelta: "// 델타 업데이트 - 변경된 슬롯만 업데이트",
+          registerComponents: "// 자동 UI 컴포넌트 등록",
+          bindEvents: "// 이벤트 바인딩",
+          refreshUI: "// UI 갱신 - 변경된 부분만 업데이트",
+          inventorySlot: "// 인벤토리 슬롯 구현 - UBaseSlot의 모든 기능을 상속받음",
+          widgetTypeAccess: "// 위젯 타입별 O(1) 접근",
+          enumExtension: "// 새로운 위젯 타입 추가 시 Enum만 확장",
+          inheritanceStructure: "// 상속 구조",
+          itemSpecific: "// 아이템 전용 기능",
+          skillSpecific: "// 스킬 전용 기능",
+          buffSpecific: "// 버프 전용 기능",
+          iconConfigData: "// ===== 아이콘 설정 데이터 =====",
+          coreDataStructure: "// 핵심 데이터 구조 (UI 자동 처리의 기반)",
+          usagePurpose: "// 아이템/스킬/버프 등 사용 목적",
+          uniqueId: "// 고유 번호 (ItemId, SkillId, ClassId 등)",
+          widgetAttributeList: "// 위젯 속성 리스트: Type + Action + Value 조합",
+          constructor: "// 생성자: Scope + UniqueID로 기본 속성 초기화",
+          autoGenerate: "// Scope에 따라 기본 속성 자동 생성",
+          systemDescription: "슬롯 시스템을 통합 베이스 아키텍처(UBaseSlot)로 설계해, UI 컴포넌트 자동 등록과 델타 업데이트를 적용했습니다. 그 결과 슬롯 UI 호출 횟수를 ~40% 줄였고, 신규 속성 추가도 Enum 정의만으로 확장 가능하게 하여 유지보수 비용을 크게 절감했습니다.",
+          problemTitle: "🔎 문제 (Before)",
+          problem1: "• 아이콘/슬롯이 각각 따로 구현돼 중복 코드와 관리 비용 증가",
+          problem2: "• 새로운 속성(예: 쿨타임, 강화 등) 추가 시 모든 슬롯 클래스 수정 필요",
+          problem3: "• UI 전체를 매번 재빌드 → 프레임 드랍, 메모리 낭비 발생",
+          solutionTitle: "🚀 해결 (System 설계)",
+          solution1: "• 통합 베이스 클래스로 아이콘 UI/동작을 일원화",
+          solution2: "• 자동 위젯 등록 → Enum만 추가하면 확장",
+          solution3: "• 델타 업데이트 → 변경된 슬롯만 갱신",
+          solution4: "• 공통 인터랙션 제공 → 클릭·롱프레스 이벤트를 부모에서 제공, 자식은 재사용만",
+          resultTitle: "🎯 성과 (After)",
+          result1: "• 코드 중복 제거 → 슬롯 관련 코드 ↓ 대폭 감소",
+          result2: "• 확장성 확보 → 신규 속성 추가 시 Enum 정의만으로 즉시 반영",
+          result3: "• 렌더링 비용 절감 → 전체 재빌드 제거, 슬롯 UI 호출 횟수 ↓ 대폭 감소",
+          result4: "• 유지보수 용이성 → 모든 슬롯이 UBaseSlot 하나만 상속받으므로 수정 범위 ↓ 최소화",
+          otherScopeHandling: "// ... 기타 Scope 처리",
+          widgetTypeDefinition: "// 위젯 타입 정의",
+          widgetTypeEnum: "Icon, Grade, Count, CoolTime, Equip, Lock, Reinforce, ToolTip",
+          extensible: "// ... 확장 가능",
+          widgetAttributeUnit: "// 위젯 속성 단위",
+          widgetType: "// 어떤 위젯인지",
+          widgetAction: "// 어떤 동작을 수행 할지 (Visibility, ResourcePath, CoolTime 등)",
+          numericValue: "// 수치 값 (예: 강화 단계, 아이템 개수, 등급 값, 남은 쿨타임 시간 등)"
+        },
+        coreSystems: {
+          gameplayTitle: "🎮 게임플레이 시스템",
+          gameplay1: "• <strong>인벤토리&아이템 시스템</strong>: 아이템 관리, 분해, 삭제, 임시보관함",
+          gameplay2: "• <strong>장착 시스템</strong>: 부위별 데이터 관리, 듀얼 무기 스왑, 자동 장착",
+          gameplay3: "• <strong>사망 시스템</strong>: 복구/기록/복수/추적 등 사망 관련 통합 관리",
+          gameplay4: "• <strong>던전 시스템</strong>: In-Progress-Wait-Out 상태 기반 던전 관리",
+          contentTitle: "🏪 컨텐츠 시스템",
+          content1: "• <strong>NPC 상점</strong>: 아이템 거래 시스템",
+          content2: "• <strong>프리셋 시스템</strong>: 설정 저장/불러오기",
+          content3: "• <strong>게임 이벤트</strong>: 누적 접속 보상",
+          content4: "• <strong>외형 시스템</strong>: 캐릭터 커스터마이징",
+          techTitle: "🔧 기술 시스템",
+          tech1: "• <strong>토스트 팝업</strong>: 사용자 알림 시스템",
+          tech2: "• <strong>치트키 시스템</strong>: 개발/테스트 지원",
+          tech3: "• <strong>재화 관리</strong>: 골드, 다이아 등",
+          tech4: "• <strong>커뮤니티</strong>: 유저간 커뮤니티 관리(파티, 친구, 경계대상 등)",
+          detailTitle: "📊 구현 상세 정보",
+          detail1Label: "총 시스템:",
+          detail1Value: "13개 주요 시스템",
+          detail2Label: "총 파일:",
+          detail2Value: "80+ .h/.cpp 파일",
+          detail3Label: "아키텍처:",
+          detail3Value: "MVVM 패턴",
+          detail4Label: "네트워크:",
+          detail4Value: "CMSG/CUP 기반"
+        },
+        inventoryObserver: {
+          modelClass: "// 인벤토리 Observer 패턴 - 자동 UI 업데이트가 있는 모델",
+          delegateDeclaration: "// 인벤토리 변경을 위한 델리게이트 선언",
+          updateInventory: "// 인벤토리 데이터 업데이트 - 자동으로 UI에 알림",
+          viewModelClass: "// Observer를 구독하는 ViewModel",
+          beginPlay: "// 모델 델리게이트 구독",
+          handleUpdate: "// FieldNotify로 자동 UI 업데이트",
+          interfaceAbstract: "인터페이스로 액션(선택/해제/활성)을 추상화",
+          observerEvent: "Observer로 변경 이벤트만 전달",
+          commandDelegate: "Command-style 델리게이트로 입력 일원화",
+          looseCoupling: "느슨한 결합으로 확장성↑, 코드 재사용성↑, 유지보수성 향상",
+          modelDelegateFlow: "모델 델리게이트 구독 → ViewModel FieldNotify → UI 자동 동기화"
+        },
+        prioritySearch: {
+          optimizerClass: "// 우선순위 기반 탐색 최적화 - 그룹화된 아이템 탐색",
+          findOptimalSlots: "// 그룹화된 아이템 탐색",
+          groupItems: "// 1. 아이템 타입별 그룹화",
+          priorityFunction: "// 2. 람다 기반 동적 우선순위 정렬",
+          multiLayerSort: "// 3. 다층 정렬 적용",
+          selectTopSlots: "// 4. 최적 슬롯만 선택 (O(N log N))",
+          groupByType: "// 아이템 타입별 그룹화",
+          calculatePriority: "// 동적 우선순위 계산",
+          itemRarity: "// 아이템 등급 우선순위",
+          playerLevel: "// 플레이어 레벨 적합성",
+          itemCondition: "// 아이템 상태 (내구도, 강화 등)",
+          coreOptimizationPoint: "// ===== 핵심 최적화 포인트 =====",
+          beforeOptimization: "// Before: O(N) - 모든 인벤토리 순회",
+          afterOptimization: "// After: O(N log N) - 그룹화 + 정렬 + 단일 탐색",
+          lambdaPriority: "// 핵심: 람다 기반 동적 우선순위 적용",
+          powerComparison: "// 1차: 전투력 비교",
+          situationalPriority: "// 2차: 전투력이 같으면 람다로 상황별 우선순위 적용",
+          situationalLambda: "// 상황별 람다 우선순위 함수들",
+          generalEquipPriority: "// Case 1: 일반 장착 우선순위 (장착상태 → UI_Order → 인벤토리순서)",
+          slotIndexPriority: "// Case 2: 슬롯 인덱스 우선순위 (듀얼 웨폰 등)",
+          highIndexPriority: "// 높은 인덱스 우선",
+          problemTitle: "🔎 문제 (Before)",
+          problem1: "• 아이템 장착 시 모든 인벤토리를 반복 탐색",
+          problem2: "• 상황별로 다른 우선순위 규칙을 위해 별도 비교 함수들 중복 구현",
+          solutionTitle: "🚀 해결 (System 설계)",
+          solution1: "• 아이템 SubType 기준으로 그룹화 후 탐색 범위 축소",
+          solution2: "• 전투력 1차 비교 후, 람다로 상황별 동적 우선순위 적용",
+          solution3: "• 하나의 ComparePriority 함수로 모든 상황 처리 (일반 장착, 듀얼 웨폰 등)",
+          resultTitle: "✅ 성과 (After)",
+          result1: "• 탐색 비용 O(N) → O(N log N) 정렬 + 단일 탐색으로 최적화",
+          result2: "• 코드 중복 제거 → 하나의 함수로 모든 우선순위 규칙 처리",
+          result3: "• 확장성 확보 → 새로운 우선순위 규칙을 람다로 쉽게 추가",
+          description: "인벤토리 전체를 매번 순회하는 대신, 아이템을 그룹화하고 람다 기반 동적 우선순위 정렬로 최적 슬롯만 선택하는 방식으로 탐색 비용을 크게 줄였습니다."
+        }
       }
     }
   };
@@ -434,7 +808,7 @@ private:
               🚀 {t.technicalHighlights.performance.title}
             </h3>
             <p className="text-body" style={{ color: '#4a5568', marginBottom: '28px' }}>
-                유지보수성과 협업을 최우선으로 삼아 아키텍처를 설계·구현했습니다.
+              {t.technicalHighlights.performance.desc}
             </p>
             
             {/* 성능 최적화 핵심 요약 */}
@@ -446,24 +820,24 @@ private:
               marginBottom: '24px'
             }}>
               <h4 className="text-subtitle-small mb-xs" style={{ color: '#1f2937' }}>
-                📊 성능 최적화 핵심 요약
+                {t.performanceOptimization.summaryTitle}
               </h4>
               <div style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
                 <div style={{ padding: '20px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
-                  <strong className="text-subtitle-xs" style={{ color: '#0369a1' }}>필터링:</strong> 
-                  <span className="text-text" style={{ color: '#0c4a6e' }}> BitMask 압축 · O(1) 판정 · 조건 통합 관리</span>
+                  <strong className="text-subtitle-xs" style={{ color: '#0369a1' }}>{t.performanceOptimization.filtering.title}</strong> 
+                  <span className="text-text" style={{ color: '#0c4a6e' }}> {t.performanceOptimization.filtering.desc}</span>
                 </div>
                 <div style={{ padding: '20px', background: '#fef3c7', borderRadius: '12px', border: '1px solid #fbbf24' }}>
-                  <strong className="text-subtitle-xs" style={{ color: '#92400e' }}>아이콘:</strong> 
-                  <span className="text-text" style={{ color: '#78350f' }}>속성 캐싱 + 슬롯 델타 갱신으로 불필요 재생성 ↓</span>
+                  <strong className="text-subtitle-xs" style={{ color: '#92400e' }}>{t.performanceOptimization.icon.title}</strong> 
+                  <span className="text-text" style={{ color: '#78350f' }}>{t.performanceOptimization.icon.desc}</span>
                 </div>
                 <div style={{ padding: '20px', background: '#ecfdf5', borderRadius: '12px', border: '1px solid #34d399' }}>
-                  <strong className="text-subtitle-xs" style={{ color: '#065f46' }}>인벤토리:</strong> 
-                  <span className="text-text" style={{ color: '#064e3b' }}>Observer + FieldNotify로 이벤트 기반 UI 동기화</span>
+                  <strong className="text-subtitle-xs" style={{ color: '#065f46' }}>{t.performanceOptimization.inventory.title}</strong> 
+                  <span className="text-text" style={{ color: '#064e3b' }}>{t.performanceOptimization.inventory.desc}</span>
                 </div>
                 <div style={{ padding: '20px', background: '#f3e8ff', borderRadius: '12px', border: '1px solid #a78bfa' }}>
-                  <strong className="text-subtitle-xs" style={{ color: '#6b21a8' }}>탐색:</strong> 
-                  <span className="text-text" style={{ color: '#581c87' }}>그룹화 + 다층 정렬로 O(N) → O(N log N) 최적화</span>
+                  <strong className="text-subtitle-xs" style={{ color: '#6b21a8' }}>{t.performanceOptimization.search.title}</strong> 
+                  <span className="text-text" style={{ color: '#581c87' }}>{t.performanceOptimization.search.desc}</span>
                 </div>
               </div>
             </div>
@@ -473,51 +847,53 @@ private:
               items={[
                 {
                   id: "bitmask",
-                  title: "🔍 BitMask 기반 O(1) 필터링 시스템",
-                  badge: "비트 단위 압축 관리",
-                  preview: "하나의 정수를 비트 영역 분할하여 등록/제외 조건을 통합 관리하는 필터링 시스템",
+                  title: t.accordionItems.bitmask.title,
+                  badge: t.accordionItems.bitmask.badge,
+                  preview: t.accordionItems.bitmask.preview,
 
                                       children: (
                       <>
                         <p className="text-text" style={{ color: '#4b5563', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
-                          "하나의 int32를 0~15bit(등록), 16~31bit(제외)로 분할하여 복잡한 필터링을 단순한 비트 연산으로 해결"
+                          "{t.bitMaskDetails.quote}"
                         </p>
                         <ul className="text-text" style={{ color: '#374151', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
-                          <li style={{ marginBottom: '8px' }}><strong>비트 영역 분할:</strong> 등록 조건(0~15bit)과 제외 조건(16~31bit)을 하나의 정수로 통합</li>
-                          <li style={{ marginBottom: '8px' }}><strong>O(1) 필터링:</strong> 비트 연산으로 복잡한 if-else 로직을 단순화</li>
-                          <li style={{ marginBottom: '8px' }}><strong>확장 가능한 설계:</strong> 새로운 필터 조건 추가 시 비트만 할당</li>
+                          <li style={{ marginBottom: '8px' }}><strong>{t.bitMaskDetails.bitDivision}</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>{t.bitMaskDetails.o1Filtering}</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>{t.bitMaskDetails.scalableDesign}</strong></li>
                         </ul>
                         <div className="text-text" style={{ marginBottom: '16px', padding: '12px', background: '#f0f9ff', borderRadius: '8px', color: '#0c4a6e', border: '1px solid #bae6fd' }}>
-                          하나의 정수로 반대되는 두 개념(등록/제외)을 논리적으로 분리하여 관리하는 혁신적 아키텍처
+                          {t.bitMaskDetails.innovativeArchitecture}
                         </div>
                         <CodeCardCollapsible
-                          code={`// 비트 영역 분할로 등록/제외 조건 통합
+                          code={`${t.codeComments.bitmask.enumDefinition}
 UENUM()
 enum class EItemFilterFlag : int32
 {
-    // 등록 조건 (0~15 bit)
-    Grade_Normal = 1 << 0,
-    Grade_Goodly = 1 << 1,  
-    ... 
+    ${t.codeComments.bitmask.registrationConditions}
+    ${t.codeComments.bitmask.gradeNormal}
+    ${t.codeComments.bitmask.gradeGoodly}
+    Grade_Rare = 1 << 2,      ${t.codeComments.bitmask.gradeRare}
+    Grade_Epic = 1 << 3,      ${t.codeComments.bitmask.gradeEpic}
+    Grade_Legendary = 1 << 4, ${t.codeComments.bitmask.gradeLegendary}
     
-    // 제외 조건 (16~31 bit)  
+    ${t.codeComments.bitmask.exclusionConditions}
     ExcludeStartBit = 1 << 16, 
-    Exclude_CollectionRegisterable = 1 << 17,
-    ... 
+    ${t.codeComments.bitmask.pvpMode}
+    ${t.codeComments.bitmask.tradeDisabled}
 };
 ENUM_CLASS_FLAGS(EItemFilterFlag)
 
-// 각 컨텐츠 별 필터 적용 시
+// ${t.codeComments.bitmask.usage}
 bool IsItemVisible(const FItemData& Item, EFilterMask VisibleMask, EFilterMask ActiveMask)
 {
-    // VisibleMask: 각 컨텐츠 전체 적용 대상 필터 마스크.
-    // ActiveMask: 컨텐츠 활성화 상태의 필터 마스크.
+    ${t.codeComments.bitmask.visibleMaskComment}
+    ${t.codeComments.bitmask.activeMaskComment}
     
-    // 제외 조건 먼저 체크 (16~31 bit)
+    ${t.codeComments.bitmask.excludeCheckComment}
     if (ActiveMask & 0xFFFF0000 && IsExcludeMatched(Item, ActiveMask))
         return false;
     
-    // 등록 조건 체크 (0~15 bit)
+    ${t.codeComments.bitmask.registrationCheckComment}
     return (Item.Grade & VisibleMask & 0xFFFF) && 
            EnumHasAnyFlags(ActiveMask & 0xFFFF, Item.Grade);
 }`}
@@ -531,84 +907,84 @@ bool IsItemVisible(const FItemData& Item, EFilterMask VisibleMask, EFilterMask A
                 },
                 {
                   id: "icon",
-                  title: "🎨 통합 슬롯 베이스 시스템 (Unified Slot Base System)",
-                  badge: "코드 중복 ↓ · UI 호출 ↓",
-                  preview: "슬롯 시스템을 통합 베이스 아키텍처(UBaseSlot)로 설계해, UI 컴포넌트 자동 등록과 델타 업데이트를 적용한 시스템",
+                  title: t.accordionItems.unifiedSlot.title,
+                  badge: t.accordionItems.unifiedSlot.badge,
+                  preview: t.accordionItems.unifiedSlot.preview,
 
                                       children: (
                       <>
                         <p className="text-text" style={{ color: '#4b5563', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
-                          "슬롯 시스템을 통합 베이스 아키텍처(UBaseSlot)로 설계해, UI 컴포넌트 자동 등록과 델타 업데이트를 적용했습니다. 그 결과 슬롯 UI 호출 횟수를 ~40% 줄였고, 신규 속성 추가도 Enum 정의만으로 확장 가능하게 하여 유지보수 비용을 크게 절감했습니다."
+                          "{t.codeComments.unifiedSlot.systemDescription}"
                         </p>
                         
-                        {/* 🔎 문제 (Before) */}
+                        {/* ${t.codeComments.unifiedSlot.problemTitle} */}
                         <div style={{ marginBottom: '20px', padding: '16px', background: '#fef2f2', borderRadius: '12px', border: '1px solid #fecaca' }}>
                           <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#dc2626' }}>
-                            🔎 문제 (Before)
+                            {t.codeComments.unifiedSlot.problemTitle}
                           </h6>
                           <ul className="text-text" style={{ color: '#991b1b', margin: 0, paddingLeft: '20px' }}>
-                            <li style={{ marginBottom: '6px' }}>• 아이콘/슬롯이 각각 따로 구현돼 중복 코드와 관리 비용 증가</li>
-                            <li style={{ marginBottom: '6px' }}>• 새로운 속성(예: 쿨타임, 강화 등) 추가 시 모든 슬롯 클래스 수정 필요</li>
-                            <li style={{ marginBottom: '6px' }}>• UI 전체를 매번 재빌드 → 프레임 드랍, 메모리 낭비 발생</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.problem1}</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.problem2}</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.problem3}</li>
                           </ul>
                         </div>
           
-                        {/* 🚀 해결 (System 설계) */}
+                        {/* ${t.codeComments.unifiedSlot.solutionTitle} */}
                         <div style={{ marginBottom: '20px', padding: '16px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
                           <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#0369a1' }}>
-                            🚀 해결 (System 설계)
+                            {t.codeComments.unifiedSlot.solutionTitle}
                           </h6>
                           <ul className="text-text" style={{ color: '#0c4a6e', margin: 0, paddingLeft: '20px' }}>
-                            <li style={{ marginBottom: '6px' }}>• 통합 베이스 클래스로 아이콘 UI/동작을 일원화</li>
-                            <li style={{ marginBottom: '6px' }}>• 자동 위젯 등록 → Enum만 추가하면 확장</li>
-                            <li style={{ marginBottom: '6px' }}>• 델타 업데이트 → 변경된 슬롯만 갱신</li>
-                            <li style={{ marginBottom: '6px' }}>• 공통 인터랙션 제공 → 클릭·롱프레스 이벤트를 부모에서 제공, 자식은 재사용만</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.solution1}</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.solution2}</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.solution3}</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.solution4}</li>
                           </ul>
                         </div>
 
-                        {/* 🎯 성과 (After) */}
+                        {/* ${t.codeComments.unifiedSlot.resultTitle} */}
                         <div style={{ marginBottom: '20px', padding: '16px', background: '#f0fdf4', borderRadius: '12px', border: '1px solid #bbf7d0' }}>
                           <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#16a34a' }}>
-                            🎯 성과 (After)
+                            {t.codeComments.unifiedSlot.resultTitle}
                           </h6>
                           <ul className="text-text" style={{ color: '#15803d', margin: 0, paddingLeft: '20px' }}>
-                            <li style={{ marginBottom: '6px' }}>• 코드 중복 제거 → 슬롯 관련 코드 ↓ 대폭 감소</li>
-                            <li style={{ marginBottom: '6px' }}>• 확장성 확보 → 신규 속성 추가 시 Enum 정의만으로 즉시 반영</li>
-                            <li style={{ marginBottom: '6px' }}>• 렌더링 비용 절감 → 전체 재빌드 제거, 슬롯 UI 호출 횟수 ↓ 대폭 감소</li>
-                            <li style={{ marginBottom: '6px' }}>• 유지보수 용이성 → 모든 슬롯이 UBaseSlot 하나만 상속받으므로 수정 범위 ↓ 최소화</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.result1}</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.result2}</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.result3}</li>
+                            <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.result4}</li>
                           </ul>
                         </div>
                         <CodeCardCollapsible
-                          code={`// ===== Base 위젯 시스템 =====
-// 위젯 타입별 O(1) 접근
+                          code={`${t.codeComments.unifiedSlot.baseClass}
+${t.codeComments.unifiedSlot.widgetTypeAccess}
 TMap<EWidgetType, UWidget*> WidgetMap;
 
-// 델타 업데이트
+${t.codeComments.unifiedSlot.updateSlotDelta}
 void RefreshComponent(const FWidgetDetails& Details) {
     if (UWidget* Target = WidgetMap.FindRef(Details.Type))
         ApplyAction(Target, Details);
 }
 
-// Enum 기반 자동 등록
-void RegisterComponents();  // 새로운 위젯 타입 추가 시 Enum만 확장
+${t.codeComments.unifiedSlot.registerComponents}
+void RegisterComponents();  ${t.codeComments.unifiedSlot.enumExtension}
 
-// 상속 구조
-class UItemSlot : public UBaseSlot;      // 아이템 전용 기능
-class USkillSlot : public UBaseSlot;     // 스킬 전용 기능
-class UBuffSlot : public UBaseSlot;      // 버프 전용 기능
+${t.codeComments.unifiedSlot.inheritanceStructure}
+class UItemSlot : public UBaseSlot;      ${t.codeComments.unifiedSlot.itemSpecific}
+class USkillSlot : public UBaseSlot;     ${t.codeComments.unifiedSlot.skillSpecific}
+class UBuffSlot : public UBaseSlot;      ${t.codeComments.unifiedSlot.buffSpecific}
 
 
-// ===== 아이콘 설정 데이터 =====
-// 핵심 데이터 구조 (UI 자동 처리의 기반)
+${t.codeComments.unifiedSlot.iconConfigData}
+${t.codeComments.unifiedSlot.coreDataStructure}
 struct FIconAttributes 
 {
-    ESlotScope Scope;      // 아이템/스킬/버프 등 사용 목적
-    int64 UniqueID;        // 고유 번호 (ItemId, SkillId, ClassId 등)
+    ESlotScope Scope;      ${t.codeComments.unifiedSlot.usagePurpose}
+    int64 UniqueID;        ${t.codeComments.unifiedSlot.uniqueId}
 
-    // 위젯 속성 리스트: Type + Action + Value 조합
+    ${t.codeComments.unifiedSlot.widgetAttributeList}
     TMap<EWidgetType, FWidgetDetail> Attributes;
 
-    // 생성자: Scope + UniqueID 로 기본 속성 초기화
+    ${t.codeComments.unifiedSlot.constructor}
     FIconAttributes(ESlotScope InScope, int64 InID)
         : Scope(InScope), UniqueID(InID)
     {
@@ -616,7 +992,7 @@ struct FIconAttributes
     }
   
 private:
-    // Scope에 따라 기본 속성 자동 생성
+    ${t.codeComments.unifiedSlot.autoGenerate}
     void Init()
     {
         switch (Scope)
@@ -626,24 +1002,24 @@ private:
             case ESlotScope::SkillNo:         GenerateBySkillNo(); break;
             case ESlotScope::ClassNo:         GenerateByClassNo(); break;
             case ESlotScope::NPCBaseNo:       GenerateByNPCBaseNo(); break;
-            // ... 기타 Scope 처리
+            ${t.codeComments.unifiedSlot.otherScopeHandling}
         }
     }
 };
 
-// 위젯 타입 정의
+${t.codeComments.unifiedSlot.widgetTypeDefinition}
 enum class EWidgetType : uint8 
 {
-    Icon, Grade, Count, CoolTime, Equip, Lock, Reinforce, ToolTip
-    // ... 확장 가능
+    ${t.codeComments.unifiedSlot.widgetTypeEnum}
+    ${t.codeComments.unifiedSlot.extensible}
 };
 
-// 위젯 속성 단위
+${t.codeComments.unifiedSlot.widgetAttributeUnit}
 struct FWidgetDetail 
 {
-    EWidgetType Type;       // 어떤 위젯인지
-    EWidgetAction Action;   // 어떤 동작을 수행 할지 (Visibility, ResourcePath, CoolTime 등)
-    int64 Value;            // 수치 값 (예: 강화 단계, 아이템 개수, 등급 값, 남은 쿨타임 시간 등)
+    EWidgetType Type;       ${t.codeComments.unifiedSlot.widgetType}
+    EWidgetAction Action;   ${t.codeComments.unifiedSlot.widgetAction}
+    int64 Value;            ${t.codeComments.unifiedSlot.numericValue}
 };`}
                           language="cpp"
                           title="Unified Slot Base System Architecture"
@@ -672,27 +1048,61 @@ struct FWidgetDetail
                 },
                 {
                   id: "inventory",
-                  title: "🔧 인벤토리 인터페이스 (Observer)",
-                  badge: "UI 업데이트 호출 -35%",
-                  preview: "모델 델리게이트 구독 → ViewModel FieldNotify → UI 자동 동기화",
+                  title: t.accordionItems.inventoryObserver.title,
+                  badge: t.accordionItems.inventoryObserver.badge,
+                  preview: t.accordionItems.inventoryObserver.preview,
 
                                       children: (
                       <>
                         <p className="text-text" style={{ color: '#4b5563', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
-                          "모델 델리게이트 구독 → ViewModel FieldNotify → UI 자동 동기화"
+                          "{t.codeComments.inventoryObserver.modelDelegateFlow}"
                         </p>
                         <ul className="text-text" style={{ color: '#374151', margin: 0, paddingLeft: '24px', marginBottom: '20px' }}>
-                          <li style={{ marginBottom: '8px' }}><strong>인터페이스로 액션(선택/해제/활성)을 추상화</strong></li>
-                          <li style={{ marginBottom: '8px' }}><strong>Observer로 변경 이벤트만 전달</strong></li>
-                          <li style={{ marginBottom: '8px' }}><strong>Command-style 델리게이트로 입력 일원화</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>{t.codeComments.inventoryObserver.interfaceAbstract}</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>{t.codeComments.inventoryObserver.observerEvent}</strong></li>
+                          <li style={{ marginBottom: '8px' }}><strong>{t.codeComments.inventoryObserver.commandDelegate}</strong></li>
                         </ul>
                         <div className="text-text" style={{ marginBottom: '16px', padding: '12px', background: '#f0fdf4', borderRadius: '8px', color: '#16a34a', border: '1px solid #bbf7d0' }}>
-                          느슨한 결합으로 확장성↑, 코드 재사용성↑, 유지보수성 향상
+                          {t.codeComments.inventoryObserver.looseCoupling}
                         </div>
                         <CodeCardCollapsible
-                          code={`Inventory.OnChanged.AddUObject(this, &ThisVM::OnChanged);
-UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetItems);
-UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetSelected);`}
+                          code={`${t.codeComments.inventoryObserver.modelClass}
+class UInventoryModel : public UObject {
+  GENERATED_BODY()
+  
+public:
+  ${t.codeComments.inventoryObserver.delegateDeclaration}
+  DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnInventoryChanged, const FInventoryData&, NewData);
+  
+  UPROPERTY(BlueprintAssignable)
+  FOnInventoryChanged OnInventoryChanged;
+  
+  ${t.codeComments.inventoryObserver.updateInventory}
+  void UpdateInventory(const FInventoryData& NewData) {
+    InventoryData = NewData;
+    OnInventoryChanged.Broadcast(NewData);
+  }
+};
+
+${t.codeComments.inventoryObserver.viewModelClass}
+class UInventoryViewModel : public UObject {
+  GENERATED_BODY()
+  
+public:
+  virtual void BeginPlay() override {
+    Super::BeginPlay();
+    ${t.codeComments.inventoryObserver.beginPlay}
+    if (InventoryModel) {
+      InventoryModel->OnInventoryChanged.AddDynamic(this, &UInventoryViewModel::HandleInventoryUpdate);
+    }
+  }
+  
+  ${t.codeComments.inventoryObserver.handleUpdate}
+  UFUNCTION()
+  void HandleInventoryUpdate(const FInventoryData& NewData) {
+    UpdateInventoryUI(NewData);
+  }
+};`}
                           language="cpp"
                           title="Inventory Observer Pattern Implementation"
                           label="C++"
@@ -703,60 +1113,60 @@ UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(GetSelected);`}
                 },
                 {
                   id: "priority-search",
-                  title: "⚡ 우선순위 기반 탐색 최적화 (자동 장착)",
-                  badge: "탐색 비용 O(N) → O(N log N)",
-                  preview: "인벤토리 전체를 매번 순회하는 대신, 아이템을 그룹화하고 람다 기반 동적 우선순위 정렬로 최적 슬롯만 선택하는 방식으로 탐색 비용을 크게 줄였습니다.",
+                  title: t.accordionItems.prioritySearch.title,
+                  badge: t.accordionItems.prioritySearch.badge,
+                  preview: t.accordionItems.prioritySearch.preview,
 
                   children: (
                     <>
                       <p style={{ color: '#4b5563', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '20px', fontStyle: 'italic', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
-                        "인벤토리 전체를 매번 순회하는 대신, 아이템을 그룹화하고 람다 기반 동적 우선순위 정렬로 최적 슬롯만 선택하는 방식으로 탐색 비용을 크게 줄였습니다."
+                        "{t.codeComments.prioritySearch.description}"
                       </p>
 
-                      {/* 🔎 문제 (Before) */}
+                      {/* ${t.codeComments.prioritySearch.problemTitle} */}
                       <div style={{ marginBottom: '20px', padding: '16px', background: '#fef2f2', borderRadius: '12px', border: '1px solid #fecaca' }}>
                         <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#dc2626' }}>
-                          🔎 문제 (Before)
+                          {t.codeComments.prioritySearch.problemTitle}
                         </h6>
                         <ul className="text-text" style={{ color: '#991b1b', margin: 0, paddingLeft: '20px' }}>
-                          <li style={{ marginBottom: '6px' }}>• 아이템 장착 시 모든 인벤토리를 반복 탐색</li>
-                          <li style={{ marginBottom: '6px' }}>• 상황별로 다른 우선순위 규칙을 위해 별도 비교 함수들 중복 구현</li>
+                          <li style={{ marginBottom: '6px' }}>{t.codeComments.prioritySearch.problem1}</li>
+                          <li style={{ marginBottom: '6px' }}>{t.codeComments.prioritySearch.problem2}</li>
                         </ul>
                       </div>
 
-                      {/* 🚀 해결 (System 설계) */}
+                      {/* ${t.codeComments.prioritySearch.solutionTitle} */}
                       <div style={{ marginBottom: '20px', padding: '16px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
                         <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#0369a1' }}>
-                          🚀 해결 (System 설계)
+                          {t.codeComments.prioritySearch.solutionTitle}
                         </h6>
                         <ul className="text-text" style={{ color: '#0c4a6e', margin: 0, paddingLeft: '20px' }}>
-                          <li style={{ marginBottom: '6px' }}>• 아이템 SubType 기준으로 그룹화 후 탐색 범위 축소</li>
-                          <li style={{ marginBottom: '6px' }}>• 전투력 1차 비교 후, 람다로 상황별 동적 우선순위 적용</li>
-                          <li style={{ marginBottom: '6px' }}>• 하나의 ComparePriority 함수로 모든 상황 처리 (일반 장착, 듀얼 웨폰 등)</li>
+                          <li style={{ marginBottom: '6px' }}>{t.codeComments.prioritySearch.solution1}</li>
+                          <li style={{ marginBottom: '6px' }}>{t.codeComments.prioritySearch.solution2}</li>
+                          <li style={{ marginBottom: '6px' }}>{t.codeComments.prioritySearch.solution3}</li>
                         </ul>
                       </div>
 
-                      {/* 🎯 성과 (After) */}
+                      {/* ${t.codeComments.prioritySearch.resultTitle} */}
                       <div style={{ marginBottom: '20px', padding: '16px', background: '#f0fdf4', borderRadius: '12px', border: '1px solid #bbf7d0' }}>
                         <h6 className="text-text" style={{ fontWeight: '600', marginBottom: '12px', color: '#16a34a' }}>
-                          🎯 성과 (After)
+                          {t.codeComments.prioritySearch.resultTitle}
                         </h6>
                         <ul className="text-text" style={{ color: '#15803d', margin: 0, paddingLeft: '20px' }}>
-                          <li style={{ marginBottom: '6px' }}>• 탐색 비용 O(N) → O(N log N) 정렬 + 단일 탐색으로 최적화</li>
-                          <li style={{ marginBottom: '6px' }}>• 코드 중복 제거 → 하나의 함수로 모든 우선순위 규칙 처리</li>
-                          <li style={{ marginBottom: '6px' }}>• 확장성 확보 → 새로운 우선순위 규칙을 람다로 쉽게 추가</li>
+                          <li style={{ marginBottom: '6px' }}>{t.codeComments.prioritySearch.result1}</li>
+                          <li style={{ marginBottom: '6px' }}>{t.codeComments.prioritySearch.result2}</li>
+                          <li style={{ marginBottom: '6px' }}>{t.codeComments.prioritySearch.result3}</li>
                         </ul>
                       </div>
 
                       <CodeCardCollapsible
-                        code={`// ===== 우선순위 기반 탐색 최적화 =====
-// 1. 아이템 후보 그룹화 (아이템 SubType{무기,귀걸이..} 기준)
+                        code={`${t.codeComments.prioritySearch.optimizerClass}
+${t.codeComments.prioritySearch.groupItems}
 GroupBySubType(InventoryItems);
 
-// 2. 다층 우선순위 정렬 (전투력 → 상태 → 기획 우선순위 → SlotIndex)
+${t.codeComments.prioritySearch.multiLayerSort}
 SortItemsByPriority(CandidateItems);
 
-// 3. 최적 후보만 선택 후 장착
+${t.codeComments.prioritySearch.selectTopSlots}
 for (auto& Item : CandidateItems)
 {
     if (CheckEquipable(Item))
@@ -766,25 +1176,25 @@ for (auto& Item : CandidateItems)
     }
 }
 
-// ===== 핵심 최적화 포인트 =====
-// Before: O(N) - 모든 인벤토리 순회
-// After: O(N log N) - 그룹화 + 정렬 + 단일 탐색
+${t.codeComments.prioritySearch.coreOptimizationPoint}
+${t.codeComments.prioritySearch.beforeOptimization}
+${t.codeComments.prioritySearch.afterOptimization}
 
-// 핵심: 람다 기반 동적 우선순위 적용
+${t.codeComments.prioritySearch.lambdaPriority}
 bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
 {
-    // 1차: 전투력 비교
+    ${t.codeComments.prioritySearch.powerComparison}
     if (A.Power != B.Power) return A.Power > B.Power;
-    // 2차: 전투력이 같으면 람다로 상황별 우선순위 적용
+    ${t.codeComments.prioritySearch.situationalPriority}
     return CustomRule != nullptr ? CustomRule() : false;
 }
 
-// 상황별 람다 우선순위 함수들
-// Case 1: 일반 장착 우선순위 (장착상태 → UI_Order → 인벤토리순서)
+${t.codeComments.prioritySearch.situationalLambda}
+${t.codeComments.prioritySearch.generalEquipPriority}
 [A, B, &ItemList]() { return A.IsEquipped > B.IsEquipped || A.UIOrder < B.UIOrder || ItemList.Find(A.Slot) < ItemList.Find(B.Slot); }
 
-// Case 2: 슬롯 인덱스 우선순위 (듀얼 웨폰 등)
-[&SlotA, &SlotB]() { return SlotA.Index > SlotB.Index; // 높은 인덱스 우선 }`}
+${t.codeComments.prioritySearch.slotIndexPriority}
+[&SlotA, &SlotB]() { return SlotA.Index > SlotB.Index; ${t.codeComments.prioritySearch.highIndexPriority} }`}
                         language="cpp"
                         title="Priority-Based Search Optimization"
                         label="C++"
@@ -827,13 +1237,13 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
                 border: '1px solid #e2e8f0' 
               }}>
                 <h4 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
-                  🎮 게임플레이 시스템
+                  {t.codeComments.coreSystems.gameplayTitle}
                 </h4>
                 <ul style={{ color: '#4a5568', fontSize: '1.3rem', lineHeight: '1.6' }}>
-                  <li>• <strong>인벤토리&아이템 시스템</strong>: 아이템 관리, 분해, 삭제, 임시보관함</li>
-                  <li>• <strong>장착 시스템</strong>: 부위별 데이터 관리, 듀얼 무기 스왑, 자동 장착</li>
-                  <li>• <strong>사망 시스템</strong>: 복구/기록/복수/추적 등 사망 관련 통합 관리</li>
-                  <li>• <strong>던전 시스템</strong>: In-Progress-Wait-Out 상태 기반 던전 관리</li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.gameplay1 }}></li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.gameplay2 }}></li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.gameplay3 }}></li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.gameplay4 }}></li>
                 </ul>
             </div>
 
@@ -845,13 +1255,13 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
                 border: '1px solid #e2e8f0' 
               }}>
                 <h4 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
-                  🏪 컨텐츠 시스템
+                  {t.codeComments.coreSystems.contentTitle}
                 </h4>
                 <ul style={{ color: '#4a5568', fontSize: '1.3rem', lineHeight: '1.6' }}>
-                  <li>• <strong>NPC 상점</strong>: 아이템 거래 시스템</li>
-                  <li>• <strong>프리셋 시스템</strong>: 설정 저장/불러오기</li>
-                  <li>• <strong>게임 이벤트</strong>: 누적 접속 보상</li>
-                  <li>• <strong>외형 시스템</strong>: 캐릭터 커스터마이징</li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.content1 }}></li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.content2 }}></li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.content3 }}></li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.content4 }}></li>
                 </ul>
           </div>
 
@@ -863,13 +1273,13 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
                 border: '1px solid #e2e8f0' 
               }}>
                 <h4 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
-                  🔧 기술 시스템
+                  {t.codeComments.coreSystems.techTitle}
                 </h4>
                 <ul style={{ color: '#4a5568', fontSize: '1.3rem', lineHeight: '1.6' }}>
-                  <li>• <strong>토스트 팝업</strong>: 사용자 알림 시스템</li>
-                  <li>• <strong>치트키 시스템</strong>: 개발/테스트 지원</li>
-                  <li>• <strong>재화 관리</strong>: 골드, 다이아 등</li>
-                  <li>• <strong>커뮤니티</strong>: 유저간 커뮤니티 관리(파티, 친구, 경계대상 등)</li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.tech1 }}></li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.tech2 }}></li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.tech3 }}></li>
+                  <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.tech4 }}></li>
                 </ul>
               </div>
 
@@ -884,20 +1294,20 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
               border: '1px solid #cbd5e1'
             }}>
               <h4 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '12px', color: '#1e293b' }}>
-                📊 구현 상세 정보
+                {t.codeComments.coreSystems.detailTitle}
               </h4>
               <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
                 <div>
-                  <strong style={{ color: '#1e293b' }}>총 시스템:</strong> <span style={{ color: '#059669' }}>13개 주요 시스템</span>
+                  <strong style={{ color: '#1e293b' }}>{t.codeComments.coreSystems.detail1Label}</strong> {t.codeComments.coreSystems.detail1Value}
                 </div>
                 <div>
-                  <strong style={{ color: '#1e293b' }}>총 파일:</strong> <span style={{ color: '#059669' }}>80+ .h/.cpp 파일</span>
+                  <strong style={{ color: '#1e293b' }}>{t.codeComments.coreSystems.detail2Label}</strong> {t.codeComments.coreSystems.detail2Value}
                 </div>
                 <div>
-                  <strong style={{ color: '#1e293b' }}>아키텍처:</strong> <span style={{ color: '#059669' }}>MVVM 패턴</span>
+                  <strong style={{ color: '#1e293b' }}>{t.codeComments.coreSystems.detail3Label}</strong> {t.codeComments.coreSystems.detail3Value}
                 </div>
                 <div>
-                  <strong style={{ color: '#1e293b' }}>네트워크:</strong> <span style={{ color: '#059669' }}>CMSG/CUP 기반</span>
+                  <strong style={{ color: '#1e293b' }}>{t.codeComments.coreSystems.detail4Label}</strong> {t.codeComments.coreSystems.detail4Value}
                 </div>
               </div>
             </div>
@@ -969,13 +1379,13 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
               e.currentTarget.style.transform = 'translateY(0)';
               e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
             }}>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
                 💼 {t.sections.experience}
             </h3>
-              <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
+              <p style={{ color: '#4a5568', fontSize: '1.4rem', lineHeight: '1.6', marginBottom: '24px' }}>
                 {lang === 'ko' ? '프로젝트 경험과 기술적 성과를 자세히 살펴보세요' : 'Explore project experience and technical achievements in detail'}
             </p>
-              <div style={{ color: '#667eea', fontWeight: '600' }}>
+              <div style={{ color: '#667eea', fontSize: '1.4rem', fontWeight: '600' }}>
                 {t.sections.viewDetails} →
               </div>
           </div>
@@ -1005,13 +1415,13 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
               e.currentTarget.style.transform = 'translateY(0)';
               e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
             }}>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
                 🎮 {t.sections.projects}
             </h3>
-              <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
+              <p style={{ color: '#4a5568', fontSize: '1.4rem', lineHeight: '1.6', marginBottom: '24px' }}>
                 {lang === 'ko' ? '인터랙티브 UI 시스템과 게임플레이 메커니즘을 확인하세요' : 'Check out interactive UI systems and gameplay mechanisms'}
             </p>
-              <div style={{ color: '#667eea', fontWeight: '600' }}>
+              <div style={{ color: '#667eea', fontSize: '1.4rem', fontWeight: '600' }}>
                 {t.sections.viewDetails} →
               </div>
           </div>
@@ -1041,13 +1451,13 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
               e.currentTarget.style.transform = 'translateY(0)';
               e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
             }}>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
                 🔧 {t.sections.skills}
             </h3>
-              <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
+              <p style={{ color: '#4a5568', fontSize: '1.4rem', lineHeight: '1.6', marginBottom: '24px' }}>
                 {lang === 'ko' ? 'C++, Unreal Engine, MVVM 등 보유 기술 스택을 확인하세요' : 'Check out technical skills including C++, Unreal Engine, MVVM'}
             </p>
-              <div style={{ color: '#667eea', fontWeight: '600' }}>
+              <div style={{ color: '#667eea', fontSize: '1.4rem', fontWeight: '600' }}>
                 {t.sections.viewDetails} →
               </div>
           </div>
@@ -1077,13 +1487,13 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
               e.currentTarget.style.transform = 'translateY(0)';
               e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
             }}>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '16px', color: '#1a202c' }}>
                 🚀 {t.sections.vision}
             </h3>
-              <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '24px' }}>
+              <p style={{ color: '#4a5568', fontSize: '1.4rem', lineHeight: '1.6', marginBottom: '24px' }}>
                 {t.vision.description}
             </p>
-              <div style={{ color: '#667eea', fontWeight: '600' }}>
+              <div style={{ color: '#667eea', fontSize: '1.4rem', fontWeight: '600' }}>
                 {t.sections.viewDetails} →
               </div>
           </div>
@@ -1094,7 +1504,7 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
       {/* Contact Section */}
       <section style={{ textAlign: 'center', marginBottom: '40px' }}>
         <h2 style={{
-          fontSize: '3rem',
+          fontSize: '3.5rem',
           fontWeight: '800',
           marginBottom: '32px',
           color: '#1a202c'
@@ -1114,7 +1524,7 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
             borderRadius: '25px',
                 textDecoration: 'none',
             fontWeight: '600',
-            fontSize: '1.1rem',
+            fontSize: '1.3rem',
             transition: 'transform 0.2s, box-shadow 0.2s',
             display: 'inline-block'
           }} onMouseEnter={(e) => {
@@ -1133,7 +1543,7 @@ bool ComparePriority(const Item& A, const Item& B, TFunction<bool()> CustomRule)
             borderRadius: '25px',
             textDecoration: 'none',
             fontWeight: '600',
-            fontSize: '1.1rem',
+            fontSize: '1.3rem',
             transition: 'transform 0.2s, box-shadow 0.2s',
             display: 'inline-block'
           }} onMouseEnter={(e) => {
