@@ -15,8 +15,8 @@ const Home = () => {
       description: "C++ and Unreal Engine based MMORPG client programmer.<br/>Specialized in core game systems (Inventory, Equipment, QuickSlot) and MVVM-based UI architecture design and implementation.",
       projectU: {
         title: "ProjectR - MMORPG Client Development",
-        date: "Date: 2021 ~ Present",
-        desc: "Led client development for a large-scale MMORPG project built with Unreal Engine 5. Implemented core game systems including inventory/item systems, equipment/gear systems, party/community systems, and death/resurrection systems, applying MVVM architecture and network UI synchronization.",
+        date: "Date: 2021 ~ Present<br/><br/>",
+        desc: "This project is a <strong>cross-platform (PC and mobile)</strong> large-scale MMORPG in the <strong>Lineage-like</strong> style, utilizing <strong>C++</strong> and <strong>Unreal Engine 5</strong> to achieve high graphics quality and optimal performance.<br/><br/>I joined the client development team as a team member in January 2022, taking charge of core aspects of the game including <strong>item systems</strong>, <strong>UI/UX</strong>, <strong>system architecture</strong> design, and optimization. We actively utilize the latest Unreal Engine 5 technologies such as <strong>World Partition</strong>, <strong>Nanite</strong>, and <strong>Gameplay Ability System (GAS)</strong>, and have introduced <strong>MVVM (Model-View-ViewModel)</strong> architecture for UI development to enhance code reusability and maintainability.<br/><br/>As this is currently an unreleased private project, the main content is text-focused.",
         tags: ["C++", "Unreal Engine 5", "MVVM", "Network Programming", "MMORPG"],
         role: "Unreal Client Programmer",
         teamSize: "100+ Developers",
@@ -33,7 +33,7 @@ const Home = () => {
           desc: "Optimized network traffic with CMSG/CUP packet system, FieldNotify for efficient UI updates, and real-time data synchronization across 100+ concurrent users"
         },
         systems: {
-          title: "Core Systems",
+          title: "Core Responsible Systems",
           desc: "Developed 13+ essential game systems including inventory management, equipment/gear system, party/community systems, and death/resurrection mechanics"
         }
       },
@@ -129,8 +129,9 @@ const Home = () => {
           gradeRare: "Grade_Rare = 1 << 2,      // Rare grade items",
           gradeEpic: "Grade_Epic = 1 << 3,      // Epic grade items",
           gradeLegendary: "Grade_Legendary = 1 << 4, // Legendary grade items",
-          pvpMode: "PvP_Mode = 1 << 16,         // PvP mode exclusion",
-          tradeDisabled: "Trade_Disabled = 1 << 17, // Trade disabled exclusion",
+          excludeStartBit: "ExcludeStartBit = 1 << 16, // Exclusion condition start bit",
+          pvpMode: "PvP_Mode = 1 << 17,         // PvP mode exclusion",
+          tradeDisabled: "Trade_Disabled = 1 << 18, // Trade disabled exclusion",
           usage: "// Usage example",
           filterExample: "int32_t filter = Grade_Goodly | Grade_Rare; // Registration: Good and Rare grades",
           exclusionExample: "int32_t exclusion = PvP_Mode; // Exclusion: PvP mode",
@@ -211,6 +212,11 @@ const Home = () => {
           detail4Label: "Network:",
           detail4Value: "CMSG/CUP based"
         },
+        iconSystem: {
+          title: "🏗️ Icon System Architecture",
+          subtitle: "UBaseSlot Icon System Hierarchy Diagram",
+          description: "Visual diagram of icon inheritance structure and data flow centered around UBaseSlot base class"
+        },
         inventoryObserver: {
           modelClass: "// Inventory Observer Pattern - Model with automatic UI updates",
           delegateDeclaration: "// Delegate declaration for inventory changes",
@@ -282,8 +288,8 @@ const Home = () => {
       description: "C++와 Unreal Engine 기반의 MMORPG 클라이언트 프로그래머입니다.<br/>인벤토리·장비·퀵슬롯 등 핵심 게임 시스템과 MVVM 기반 UI 아키텍처 설계·구현에 전문성을 갖추고 있습니다.",
       projectU: {
         title: "ProjectR - MMORPG 클라이언트 개발",
-        date: "기간: 2021 ~ 현재",
-        desc: "Unreal Engine 5 기반 대규모 MMORPG 프로젝트에서 클라이언트 개발을 주도했습니다. 인벤토리, 장비/장착, 파티/커뮤니티 등 핵심 게임 시스템을 구현하고, MVVM 아키텍처와 네트워크 UI 동기화를 적용했습니다.",
+        date: "기간: 2021 ~ 현재<br/><br/>",
+        desc: "본 프로젝트는 <strong>크로스플랫폼(PC 및 모바일)</strong> 기반의 <strong>리니지 라이크(Lineage-like)</strong> 스타일 대규모 MMORPG로, <strong>C++</strong>과 <strong>Unreal Engine 5</strong>를 활용해 높은 그래픽 품질과 최적의 성능 구현을 목표로 합니다.<br/><br/>2022년 1월부터 클라이언트 개발팀의 팀원으로 합류하여, <strong>아이템 시스템</strong>, <strong>UI/UX</strong>, <strong>시스템 아키텍처</strong> 설계 및 최적화 등 게임의 핵심적인 부분들을 담당하고 있습니다. <strong>World Partition</strong>, <strong>Nanite</strong>, <strong>Gameplay Ability System(GAS)</strong> 등 언리얼 엔진 5의 최신 기술을 적극적으로 활용하고 있으며, UI 개발에는 <strong>MVVM(Model-View-ViewModel)</strong> 아키텍처를 도입하여 코드의 재사용성과 유지보수성을 높였습니다.<br/><br/>현재 출시 미정인 비공개 프로젝트라 주요 내용은 텍스트 중심으로 구성했습니다.",
         tags: ["C++", "Unreal Engine 5", "MVVM", "네트워크 프로그래밍", "MMORPG"],
         role: "언리얼 클라이언트 프로그래머",
         teamSize: "100+ 개발자",
@@ -293,24 +299,24 @@ const Home = () => {
         title: "기술적 하이라이트",
         architecture: {
           title: "MVVM 아키텍처",
-          desc: "13개 주요 게임 시스템의 MVVM 아키텍처 구현과 Model-View 분리, 델리게이트 기반 이벤트 핸들링을 통한 확장 가능한 UI 시스템 구축"
+          desc: "13개 주요 게임 시스템의 MVVM 아키텍처 구현과 Model-View 분리,<br/>델리게이트 기반 이벤트 핸들링을 통한 확장 가능한 UI 시스템 구축"
         },
         performance: {
           title: "성능 최적화",
-          desc: "CMSG/CUP 패킷 시스템, FieldNotify를 통한 효율적인 UI 업데이트, 100명 이상 동시 접속자 실시간 데이터 동기화"
+          desc: "CMSG/CUP 패킷 시스템, FieldNotify를 통한 효율적인 UI 업데이트,<br/>100명 이상 동시 접속자 실시간 데이터 동기화"
         },
         systems: {
-          title: "핵심 시스템",
-          desc: "인벤토리 관리, 장비/장착 시스템, 파티/커뮤니티 시스템, 사망/부활 메커니즘을 포함한 13개 이상의 필수 게임 시스템 개발"
+          title: "핵심 담당 시스템",
+          desc: "인벤토리 관리, 장비/장착 시스템, 파티/커뮤니티 시스템,<br/>사망/부활 메커니즘을 포함한 13개 이상의 필수 게임 시스템 개발"
         }
       },
       contributions: {
         title: "주요 기여",
         items: [
           {
-            title: "개인 게임 시스템 (인벤토리, 아이템, 퀵슬롯)",
-            desc: "UID 기반 데이터 관리, 클라이언트–서버 동기화, 자동 사용 로직 구현",
-            note: "플레이어 개인 게임 플레이 필수 기능 지원"
+            title: "인벤토리 관리 시스템",
+            desc: "UID 기반 데이터 관리, 클라이언트–서버 동기화, 아이템 동작 및 상태 갱신 로직 구현",
+            note: "아이템 사용, 장착/해제, 보관, 정리, 처리 등 전체 기능 구현"
           },
           {
             title: "UI/UX 시스템 (MVVM 아키텍처)",
@@ -380,7 +386,7 @@ const Home = () => {
       sections: {
         experience: "경력",
         projects: "프로젝트",
-        skills: "기술 스택",
+        skills: "소통/협업",
         vision: "비전",
         viewDetails: "자세히 보기"
       },
@@ -411,8 +417,9 @@ const Home = () => {
           gradeRare: "Grade_Rare = 1 << 2,      // 레어 등급 아이템",
           gradeEpic: "Grade_Epic = 1 << 3,      // 에픽 등급 아이템",
           gradeLegendary: "Grade_Legendary = 1 << 4, // 전설 등급 아이템",
-          pvpMode: "PvP_Mode = 1 << 16,         // PvP 모드 제외",
-          tradeDisabled: "Trade_Disabled = 1 << 17, // 거래 불가 제외",
+          excludeStartBit: "ExcludeStartBit = 1 << 16, // 제외 조건 시작 비트",
+          pvpMode: "PvP_Mode = 1 << 17,         // PvP 모드 제외",
+          tradeDisabled: "Trade_Disabled = 1 << 18, // 거래 불가 제외",
           usage: "// 사용 예시",
           filterExample: "int32_t filter = Grade_Goodly | Grade_Rare; // 등록: 좋은 등급과 레어 등급",
           exclusionExample: "int32_t exclusion = PvP_Mode; // 제외: PvP 모드",
@@ -493,6 +500,11 @@ const Home = () => {
           detail4Label: "네트워크:",
           detail4Value: "CMSG/CUP 기반"
         },
+        iconSystem: {
+          title: "🏗️ 아이콘 시스템 아키텍처",
+          subtitle: "UBaseSlot 아이콘 시스템 계층 구조 다이어그램",
+          description: "UBaseSlot 베이스 클래스를 중심으로 한 아이콘 상속 구조와 데이터 흐름을 시각화한 다이어그램"
+        },
         inventoryObserver: {
           modelClass: "// 인벤토리 Observer 패턴 - 자동 UI 업데이트가 있는 모델",
           delegateDeclaration: "// 인벤토리 변경을 위한 델리게이트 선언",
@@ -569,7 +581,7 @@ const Home = () => {
         <h2 className="text-hero-subtitle mb-xs">
           {t.subtitle}
         </h2>
-        <p className="text-hero-body" style={{ maxWidth: '800px', margin: '0 auto' }} dangerouslySetInnerHTML={{ __html: t.description }} />
+        <p className="text-hero-body" style={{ maxWidth: '800px', margin: '0 auto', marginTop: '24px' }} dangerouslySetInnerHTML={{ __html: t.description }} />
       </section>
 
       {/* ProjectU Main Card */}
@@ -596,15 +608,11 @@ const Home = () => {
           </div>
 
           <div style={{ padding: '48px' }}>
-            <h3 className="text-section-subtitle mb-xs">
+            <h3 className="text-section-subtitle mb-xs" style={{ fontSize: '3rem' }}>
               🎮 {t.projectU.title}
             </h3>
-            <p className="text-body mb-xs" style={{ color: '#718096', fontStyle: 'italic' }}>
-              {t.projectU.date}
-            </p>
-            <p className="text-body mb-md" style={{ color: '#4a5568' }}>
-              {t.projectU.desc}
-            </p>
+            <p className="text-body mb-xs" style={{ color: '#718096', fontStyle: 'italic', fontSize: '1.4rem' }} dangerouslySetInnerHTML={{ __html: t.projectU.date }} />
+            <p className="text-body mb-md" style={{ color: '#2d3748', fontSize: '1.8rem', lineHeight: '1.7' }} dangerouslySetInnerHTML={{ __html: t.projectU.desc }} />
             
             {/* 주요 기여 섹션 */}
             <div style={{ 
@@ -617,13 +625,22 @@ const Home = () => {
               <h4 className="text-subtitle-small mb-xs" style={{ 
                 color: '#2d3748', 
                 borderLeft: '4px solid #667eea',
+                marginBottom: '16px',
                 paddingLeft: '12px'
               }}>
                 {t.contributions.title}
               </h4>
               <div style={{ display: 'grid', gap: '16px' }}>
                 {t.contributions.items.map((item, index) => (
-                  <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <div key={index}>
+                    {index > 0 && (
+                      <div style={{ 
+                        height: '1px', 
+                        background: '#e2e8f0', 
+                        margin: '20px 0' 
+                      }}></div>
+                    )}
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                    <span style={{ 
                      background: '#667eea', 
                      color: 'white', 
@@ -639,17 +656,18 @@ const Home = () => {
                      marginTop: '2px'
                     }}>{index + 1}</span>
                    <div style={{ flex: 1 }}>
-                     <p className="text-description" style={{ color: '#2d3748', margin: '0 0 8px 0', fontWeight: '600' }}>
+                     <p className="text-description" style={{ color: '#1a202c', margin: '0 0 8px 0', fontWeight: '700', fontSize: '1.7rem' }}>
                         {item.title}
                      </p>
-                     <p className="text-text" style={{ color: '#4a5568', margin: '0 0 8px 0' }}>
+                     <p className="text-text" style={{ color: '#2d3748', margin: '0 0 8px 0', fontSize: '1.4rem', lineHeight: '1.6' }}>
                         {item.desc}
                      </p>
-                     <p className="text-small" style={{ color: '#718096', margin: 0, fontStyle: 'italic' }}>
+                     <p className="text-small" style={{ color: '#4a5568', margin: 0, fontStyle: 'italic', fontSize: '1.3rem' }}>
                         {item.note}
                      </p>
                    </div>
                  </div>
+                    </div>
                 ))}
               </div>
             </div>
@@ -699,7 +717,9 @@ const Home = () => {
           textAlign: 'left',
           borderLeft: '8px solid #667eea',
           paddingLeft: '20px',
-          display: 'inline-block'
+          display: 'inline-block',
+          fontSize: '3.2rem',
+          marginBottom: '40px'
         }}>
           ⚡ {t.technicalHighlights.title}
         </h2>
@@ -716,12 +736,10 @@ const Home = () => {
             boxSizing: 'border-box',
             overflow: 'hidden'
           }}>
-            <h3 className="text-section-subtitle" style={{ marginBottom: '24px' }}>
+            <h3 className="text-section-subtitle" style={{ marginBottom: '28px', fontSize: '2.2rem' }}>
               🏗️ {t.technicalHighlights.architecture.title}
             </h3>
-            <p className="text-body" style={{ color: '#4a5568', marginBottom: '28px' }}>
-              {t.technicalHighlights.architecture.desc}
-            </p>
+            <p className="text-body" style={{ color: '#2d3748', marginBottom: '28px', fontSize: '1.6rem', fontWeight: '500' }} dangerouslySetInnerHTML={{ __html: t.technicalHighlights.architecture.desc }} />
             {/* PC와 모바일 모두에서 세로 배치 유지 */}
             <div className="min-w-0 mvvm-architecture-content" style={{ 
               display: 'grid', 
@@ -804,12 +822,10 @@ private:
                 boxSizing: 'border-box',
                 overflow: 'hidden'
           }}>
-            <h3 className="text-section-subtitle" style={{ marginBottom: '24px' }}>
+            <h3 className="text-section-subtitle" style={{ marginBottom: '28px' }}>
               🚀 {t.technicalHighlights.performance.title}
             </h3>
-            <p className="text-body" style={{ color: '#4a5568', marginBottom: '28px' }}>
-              {t.technicalHighlights.performance.desc}
-            </p>
+            <p className="text-body" style={{ color: '#2d3748', marginBottom: '28px', fontSize: '1.6rem', fontWeight: '500' }} dangerouslySetInnerHTML={{ __html: t.technicalHighlights.performance.desc }} />
             
             {/* 성능 최적화 핵심 요약 */}
             <div style={{ 
@@ -863,7 +879,7 @@ private:
                         </ul>
                         <div className="text-text" style={{ marginBottom: '16px', padding: '12px', background: '#f0f9ff', borderRadius: '8px', color: '#0c4a6e', border: '1px solid #bae6fd' }}>
                           {t.bitMaskDetails.innovativeArchitecture}
-                        </div>
+            </div>
                         <CodeCardCollapsible
                           code={`${t.codeComments.bitmask.enumDefinition}
 UENUM()
@@ -872,12 +888,12 @@ enum class EItemFilterFlag : int32
     ${t.codeComments.bitmask.registrationConditions}
     ${t.codeComments.bitmask.gradeNormal}
     ${t.codeComments.bitmask.gradeGoodly}
-    Grade_Rare = 1 << 2,      ${t.codeComments.bitmask.gradeRare}
-    Grade_Epic = 1 << 3,      ${t.codeComments.bitmask.gradeEpic}
-    Grade_Legendary = 1 << 4, ${t.codeComments.bitmask.gradeLegendary}
+    ${t.codeComments.bitmask.gradeRare}
+    ${t.codeComments.bitmask.gradeEpic}
+    ${t.codeComments.bitmask.gradeLegendary}
     
     ${t.codeComments.bitmask.exclusionConditions}
-    ExcludeStartBit = 1 << 16, 
+    ${t.codeComments.bitmask.excludeStartBit}
     ${t.codeComments.bitmask.pvpMode}
     ${t.codeComments.bitmask.tradeDisabled}
 };
@@ -927,7 +943,7 @@ bool IsItemVisible(const FItemData& Item, EFilterMask VisibleMask, EFilterMask A
                             <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.problem2}</li>
                             <li style={{ marginBottom: '6px' }}>{t.codeComments.unifiedSlot.problem3}</li>
                           </ul>
-                        </div>
+          </div>
           
                         {/* ${t.codeComments.unifiedSlot.solutionTitle} */}
                         <div style={{ marginBottom: '20px', padding: '16px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
@@ -1030,17 +1046,29 @@ struct FWidgetDetail
                         {/* 🏗️ 아이콘 시스템 아키텍처 */}
                         <div style={{ marginTop: '24px', padding: '20px', background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
                           <h5 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '16px', color: '#374151' }}>
-                            🏗️ 아이콘 시스템 아키텍처
+                            {t.codeComments.iconSystem.title}
                           </h5>
-                          <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+                          <div style={{ 
+                            textAlign: 'center', 
+                            marginBottom: '16px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                          }}>
                             <img 
                               src="/UBaseSlot.jpg" 
-                              alt="UBaseSlot 아이콘 시스템 계층 구조 다이어그램"
-                              style={{ maxWidth: '300px', height: 'auto' }}
+                              alt={t.codeComments.iconSystem.subtitle}
+                              style={{ 
+                                maxWidth: '400px', 
+                                width: '100%', 
+                                height: 'auto',
+                                display: 'block',
+                                margin: '0 auto'
+                              }}
                             />
                           </div>
                           <p style={{ fontSize: '0.95rem', color: '#6b7280', textAlign: 'center', margin: 0 }}>
-                            UBaseSlot 베이스 클래스를 중심으로 한 아이콘 상속 구조와 데이터 흐름을 시각화한 다이어그램
+                            {t.codeComments.iconSystem.description}
                           </p>
                         </div>
                       </>
@@ -1222,9 +1250,7 @@ ${t.codeComments.prioritySearch.slotIndexPriority}
             <h3 style={{ fontSize: '2.2rem', fontWeight: '700', marginBottom: '28px', color: '#1a202c' }}>
               ⚙️ {t.technicalHighlights.systems.title}
             </h3>
-            <p style={{ color: '#4a5568', lineHeight: '1.8', fontSize: '1.8rem', marginBottom: '28px' }}>
-              {t.technicalHighlights.systems.desc}
-            </p>
+            <p style={{ color: '#2d3748', lineHeight: '1.8', fontSize: '1.6rem', marginBottom: '28px', fontWeight: '500' }} dangerouslySetInnerHTML={{ __html: t.technicalHighlights.systems.desc }} />
             
             {/* Core Systems Grid */}
             <div style={{ display: 'grid', gap: '20px', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
@@ -1236,10 +1262,10 @@ ${t.codeComments.prioritySearch.slotIndexPriority}
               borderRadius: '12px',
                 border: '1px solid #e2e8f0' 
               }}>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
+                <h4 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
                   {t.codeComments.coreSystems.gameplayTitle}
                 </h4>
-                <ul style={{ color: '#4a5568', fontSize: '1.3rem', lineHeight: '1.6' }}>
+                <ul style={{ color: '#4a5568', fontSize: '1.5rem', lineHeight: '1.6' }}>
                   <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.gameplay1 }}></li>
                   <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.gameplay2 }}></li>
                   <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.gameplay3 }}></li>
@@ -1254,10 +1280,10 @@ ${t.codeComments.prioritySearch.slotIndexPriority}
                 borderRadius: '12px', 
                 border: '1px solid #e2e8f0' 
               }}>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
+                <h4 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
                   {t.codeComments.coreSystems.contentTitle}
                 </h4>
-                <ul style={{ color: '#4a5568', fontSize: '1.3rem', lineHeight: '1.6' }}>
+                <ul style={{ color: '#4a5568', fontSize: '1.5rem', lineHeight: '1.6' }}>
                   <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.content1 }}></li>
                   <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.content2 }}></li>
                   <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.content3 }}></li>
@@ -1272,10 +1298,10 @@ ${t.codeComments.prioritySearch.slotIndexPriority}
                 borderRadius: '12px', 
                 border: '1px solid #e2e8f0' 
               }}>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
+                <h4 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '16px', color: '#1a202c' }}>
                   {t.codeComments.coreSystems.techTitle}
                 </h4>
-                <ul style={{ color: '#4a5568', fontSize: '1.3rem', lineHeight: '1.6' }}>
+                <ul style={{ color: '#4a5568', fontSize: '1.5rem', lineHeight: '1.6' }}>
                   <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.tech1 }}></li>
                   <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.tech2 }}></li>
                   <li dangerouslySetInnerHTML={{ __html: t.codeComments.coreSystems.tech3 }}></li>
@@ -1455,7 +1481,7 @@ ${t.codeComments.prioritySearch.slotIndexPriority}
                 🔧 {t.sections.skills}
             </h3>
               <p style={{ color: '#4a5568', fontSize: '1.4rem', lineHeight: '1.6', marginBottom: '24px' }}>
-                {lang === 'ko' ? 'C++, Unreal Engine, MVVM 등 보유 기술 스택을 확인하세요' : 'Check out technical skills including C++, Unreal Engine, MVVM'}
+                {lang === 'ko' ? '치트키 툴 개발, 엑셀 기반 동적 시스템 등 팀 협업 도구를 확인하세요' : 'Check out team collaboration tools including cheat key development and Excel-based dynamic systems'}
             </p>
               <div style={{ color: '#667eea', fontSize: '1.4rem', fontWeight: '600' }}>
                 {t.sections.viewDetails} →

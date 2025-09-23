@@ -11,9 +11,9 @@ const Navbar = () => {
     { path: '/', label: { en: 'About', ko: '소개' } },
     { path: '/contributions', label: { en: 'Experience', ko: '경력' } },
     { path: '/interactive-ui', label: { en: 'Projects', ko: '프로젝트' } },
-    { path: '/optimization', label: { en: 'Skills', ko: '기술 스택' } },
+    { path: '/optimization', label: { en: 'Collaboration', ko: '소통/협업' } },
     { path: '/problem-solving', label: { en: 'Additional', ko: '추가 경험' } },
-    { path: '/growth', label: { en: 'Vision', ko: '비전' } },
+    { path: '/vision', label: { en: 'Vision', ko: '비전' } },
   ];
 
   const isActive = (path) => {
@@ -75,7 +75,7 @@ const Navbar = () => {
                   color: isActive(item.path) ? '#667eea' : '#4a5568',
                   textDecoration: 'none',
                   fontWeight: '600',
-                  fontSize: window.innerWidth <= 768 ? '0.9rem' : '1.1rem',
+                  fontSize: window.innerWidth <= 768 ? '1.1rem' : '1.3rem',
                   transition: 'all 0.2s ease',
                   padding: '8px 0',
                   borderBottom: isActive(item.path) ? '3px solid #667eea' : '3px solid transparent',
@@ -93,7 +93,7 @@ const Navbar = () => {
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 border: 'none',
                 color: 'white',
-                fontSize: window.innerWidth <= 768 ? '0.85rem' : '1rem',
+                fontSize: window.innerWidth <= 768 ? '1rem' : '1.2rem',
                 cursor: 'pointer',
                 padding: window.innerWidth <= 768 ? '8px 16px' : '10px 20px',
                 borderRadius: '25px',

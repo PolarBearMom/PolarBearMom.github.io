@@ -11,6 +11,7 @@ import InteractiveUI from './pages/InteractiveUI';
 import Optimization from './pages/Optimization';
 import ProblemSolving from './pages/ProblemSolving';
 import Growth from './pages/Growth';
+import Vision from './pages/Vision';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/optimization" element={<Optimization />} />
               <Route path="/problem-solving" element={<ProblemSolving />} />
               <Route path="/growth" element={<Growth />} />
+              <Route path="/vision" element={<Vision />} />
             </Routes>
           </main>
         </div>
